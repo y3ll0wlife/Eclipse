@@ -50,10 +50,10 @@
             this.tiggerbotDelay = new MetroFramework.Controls.MetroTrackBar();
             this.triggerbotCheck = new MetroFramework.Controls.MetroCheckBox();
             this.visualTab = new MetroFramework.Controls.MetroTabPage();
+            this.radarCheck = new MetroFramework.Controls.MetroCheckBox();
             this.glowCheck = new MetroFramework.Controls.MetroCheckBox();
             this.healthBasedGlowCheck = new MetroFramework.Controls.MetroCheckBox();
             this.onlyEnemyGlow = new MetroFramework.Controls.MetroCheckBox();
-            this.radarCheck = new MetroFramework.Controls.MetroCheckBox();
             this.CheatTabs.SuspendLayout();
             this.miscTab.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -65,9 +65,9 @@
             // 
             this.CheatTabs.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.CheatTabs.Controls.Add(this.miscTab);
+            this.CheatTabs.Controls.Add(this.visualTab);
             this.CheatTabs.Controls.Add(this.metroTabPage1);
             this.CheatTabs.Controls.Add(this.aimTab);
-            this.CheatTabs.Controls.Add(this.visualTab);
             this.CheatTabs.Location = new System.Drawing.Point(10, 52);
             this.CheatTabs.Name = "CheatTabs";
             this.CheatTabs.RightToLeftLayout = true;
@@ -358,6 +358,19 @@
             this.visualTab.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.visualTab.VerticalScrollbarBarColor = true;
             // 
+            // radarCheck
+            // 
+            this.radarCheck.AutoSize = true;
+            this.radarCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.radarCheck.Location = new System.Drawing.Point(3, 48);
+            this.radarCheck.Name = "radarCheck";
+            this.radarCheck.Size = new System.Drawing.Size(74, 25);
+            this.radarCheck.TabIndex = 10;
+            this.radarCheck.Text = "Radar";
+            this.radarCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.radarCheck.UseVisualStyleBackColor = true;
+            this.radarCheck.CheckedChanged += new System.EventHandler(this.radarCheck_CheckedChanged);
+            // 
             // glowCheck
             // 
             this.glowCheck.AutoSize = true;
@@ -392,19 +405,6 @@
             this.onlyEnemyGlow.Text = "Only enemy glow";
             this.onlyEnemyGlow.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.onlyEnemyGlow.UseVisualStyleBackColor = true;
-            // 
-            // radarCheck
-            // 
-            this.radarCheck.AutoSize = true;
-            this.radarCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.radarCheck.Location = new System.Drawing.Point(3, 48);
-            this.radarCheck.Name = "radarCheck";
-            this.radarCheck.Size = new System.Drawing.Size(74, 25);
-            this.radarCheck.TabIndex = 10;
-            this.radarCheck.Text = "Radar";
-            this.radarCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.radarCheck.UseVisualStyleBackColor = true;
-            this.radarCheck.CheckedChanged += new System.EventHandler(this.radarCheck_CheckedChanged);
             // 
             // Form1
             // 

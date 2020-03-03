@@ -47,14 +47,35 @@ namespace Eclipse
         private int glowObject;
         private int myTeam;
 
-        private int weaponID;
-
-
-
         // Memory
         VAMemory vam = new VAMemory(ProcessName);
 
 
+        // When program is launched
+        private void startGame()
+        {
+            if (GetModule())
+            {
+
+                fJump = BClient + Offsets.dwForceJump;
+                aLocalPlayer = BClient + Offsets.dwLocalPlayer;
+                LocalPlayer = vam.ReadInt32((IntPtr)aLocalPlayer);
+
+                fAttack = BClient + Offsets.dwForceAttack;
+                aFlags = LocalPlayer + Offsets.m_fFlags;
+
+                glowObject = vam.ReadInt32((IntPtr)BClient + Offsets.dwGlowObjectManager);
+                myTeam = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_iTeamNum);
+
+                aLocalPlayer = BClient + aLocalPlayer;
+
+
+                Thread BG = new Thread(BackgroundRunner);
+                BG.Start();
+
+
+            }
+        }
         static bool GetModule()
         {
             try
@@ -83,22 +104,80 @@ namespace Eclipse
                 return false;
             }
         }
+        private void FixColors()
+        {
+            var color = MetroFramework.MetroColorStyle.Purple;
+            CheatTabs.Style = color;
+            // Misc
+            antiFlashCheck.Style = color;
+            skinChangerCheck.Style = color;
+            bunnyCheck.Style = color;
+            thirdPersonCheck.Style = color;
+            // Aim
+            triggerbotCheck.Style = color;
+            // Visuals
+            glowCheck.Style = color;
+            onlyEnemyGlow.Style = color;
+            healthBasedGlowCheck.Style = color;
+            radarCheck.Style = color;
+
+            // Fix saved'
+            // Scrolls
+            antiFlashScroll.Value = Properties.Settings.Default.DelayAntiFlash;
+            metroLabel7.Text = delayAntiFlash.Value + " ms";
 
 
-        // Is user scoped
+            tiggerbotDelay.Value = Properties.Settings.Default.DelayTriggerBot;
+            metroLabel5.Text = tiggerbotDelay.Value + " ms";
+
+            // Misc
+            hasToBeScopedCheck.Style = color;
+        }  // Fixing the colors of the program
+        private void BackgroundRunner()
+        {
+            while (true)
+            {
+                fJump = BClient + Offsets.dwForceJump;
+                aLocalPlayer = BClient + Offsets.dwLocalPlayer;
+                LocalPlayer = vam.ReadInt32((IntPtr)aLocalPlayer);
+
+                fAttack = BClient + Offsets.dwForceAttack;
+                aFlags = LocalPlayer + Offsets.m_fFlags;
+
+                glowObject = vam.ReadInt32((IntPtr)BClient + Offsets.dwGlowObjectManager);
+                myTeam = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_iTeamNum);
+
+                aLocalPlayer = BClient + aLocalPlayer;
+
+                Thread.Sleep(5000);
+
+            }
+        }
+
+        // Functions
         private bool IsScoped()
         {
             return vam.ReadBoolean((IntPtr)LocalPlayer + Offsets.m_bIsScoped);
-        }
-
+        } // Checks if user is scoped
         private void Shoot()
         {
             Thread.Sleep(Convert.ToInt32(tiggerbotDelay.Value));
             vam.WriteInt32((IntPtr)fAttack, 1);
             Thread.Sleep(10);
             vam.WriteInt32((IntPtr)fAttack, 4);
+        } // Force shoot
+
+        private void ApplySkin(int WeapInt, int skinID, int KillstreakNum)
+        {
+            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
+            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit, skinID); // Skin ID
+            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak, KillstreakNum); // Kill streak number
+            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
+            vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0f); // Float value
+           
         }
 
+        // Cheats
         private void AntiFlash()
         {
             while (antiFlashCheck.Checked)
@@ -112,7 +191,7 @@ namespace Eclipse
                 }
                 Thread.Sleep(10);
             }
-        } // Anti Flash hack
+        } // Anti Flash
         private void Bunnyhop()
         {
             while (bunnyCheck.Checked)
@@ -131,7 +210,7 @@ namespace Eclipse
                 }
                 Thread.Sleep(10);
             }
-        } // Bunny hop hack
+        } // Bunnyhop
         private void Glow()
         {
             while (glowCheck.Checked)
@@ -206,7 +285,7 @@ namespace Eclipse
                 }
                 Thread.Sleep(10);
             }
-        } // Glow hack
+        } // Glow
         private void TriggerBot()
         {
             while (triggerbotCheck.Checked)
@@ -244,7 +323,7 @@ namespace Eclipse
                 }
                 Thread.Sleep(10);
             }
-        }  // Triggerbot hack
+        }  // Triggerbot
         private void SkinChanger()
         {
             while (skinChangerCheck.Checked)
@@ -252,395 +331,51 @@ namespace Eclipse
                 int WeaponIndex = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_hActiveWeapon) & 0xFFF;
                 int WeapInt = vam.ReadInt32((IntPtr)(BClient + Offsets.dwEntityList + WeaponIndex * 0x10) - 0x10);
                 int WeaponID = vam.ReadInt32((IntPtr)WeapInt + Offsets.m_iItemDefinitionIndex);
-                int WeaponSkinID = vam.ReadInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit);
-
-
-
+              
                 //Debug.WriteLine(WeaponID);
 
                 // https://www.mpgh.net/forum/showthread.php?t=1031822
                 // https://www.mpgh.net/forum/showthread.php?t=1031822
                 // https://tf2b.com/itemlist.php?gid=730
 
-                if (WeaponID == 1) //Desert Eagle
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.DESERTEAGLE_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
+                if (WeaponID == 1)ApplySkin(WeapInt, Properties.Settings.Default.DESERTEAGLE_SkinID, Properties.Settings.Default.Killstreaknumber); //Desert Eagle
+                else if (WeaponID == 2) ApplySkin(WeapInt, Properties.Settings.Default.DUALBERETTAS_SkinID, Properties.Settings.Default.Killstreaknumber); // Dual Berettas
+                else if (WeaponID == 3) ApplySkin(WeapInt, Properties.Settings.Default.FIVESEVEN_SkinID, Properties.Settings.Default.Killstreaknumber); //Five-SeveN
+                else if (WeaponID == 4) ApplySkin(WeapInt, Properties.Settings.Default.Glock18_SkinID, Properties.Settings.Default.Killstreaknumber);// Glock-18
+                else if (WeaponID == 7) ApplySkin(WeapInt, Properties.Settings.Default.AK47_SkinID, Properties.Settings.Default.Killstreaknumber);// Ak-47
+                else if (WeaponID == 8) ApplySkin(WeapInt, Properties.Settings.Default.AUG_SkinID, Properties.Settings.Default.Killstreaknumber);// AUG
+                else if (WeaponID == 9) ApplySkin(WeapInt, Properties.Settings.Default.AWP_SkinID, Properties.Settings.Default.Killstreaknumber);// AWP
+                else if (WeaponID == 10) ApplySkin(WeapInt, Properties.Settings.Default.FAMAS_SkinID, Properties.Settings.Default.Killstreaknumber); // FAMAS
+                else if (WeaponID == 11) ApplySkin(WeapInt, Properties.Settings.Default.G3SG1_SkinID, Properties.Settings.Default.Killstreaknumber);// G3SSG1
+                else if (WeaponID == 13) ApplySkin(WeapInt, Properties.Settings.Default.GALILAR_SkinID, Properties.Settings.Default.Killstreaknumber); // Galil AR
+                else if (WeaponID == 14) ApplySkin(WeapInt, Properties.Settings.Default.M249_SkinID, Properties.Settings.Default.Killstreaknumber);// M249
+                else if (WeaponID == 16) ApplySkin(WeapInt, Properties.Settings.Default.M4A4_SkinID, Properties.Settings.Default.Killstreaknumber); // M4A4
+                else if (WeaponID == 17) ApplySkin(WeapInt, Properties.Settings.Default.MAC10_SkinID, Properties.Settings.Default.Killstreaknumber); // MAC-10
+                else if (WeaponID == 19) ApplySkin(WeapInt, Properties.Settings.Default.P90_SkinID, Properties.Settings.Default.Killstreaknumber); // P90 
+                else if (WeaponID == 23) ApplySkin(WeapInt, Properties.Settings.Default.MP5SD_SkinID, Properties.Settings.Default.Killstreaknumber); // Mp5-SD
+                else if (WeaponID == 24) ApplySkin(WeapInt, Properties.Settings.Default.UMP45_SkinID, Properties.Settings.Default.Killstreaknumber); // UMP-45
+                else if (WeaponID == 25) ApplySkin(WeapInt, Properties.Settings.Default.XM1014_SkinID, Properties.Settings.Default.Killstreaknumber); // XM1014 
+                else if (WeaponID == 26) ApplySkin(WeapInt, Properties.Settings.Default.PPBIZON_SkinID, Properties.Settings.Default.Killstreaknumber); // PP-Bizon
+                else if (WeaponID == 27) ApplySkin(WeapInt, Properties.Settings.Default.MAG7_SkinID, Properties.Settings.Default.Killstreaknumber); // MAG-7
+                else if (WeaponID == 28) ApplySkin(WeapInt, Properties.Settings.Default.NEGEV_SkinID, Properties.Settings.Default.Killstreaknumber); // NEGEV
+                else if (WeaponID == 29) ApplySkin(WeapInt, Properties.Settings.Default.SAWEDOFF_SkinID, Properties.Settings.Default.Killstreaknumber);// Sawed-Off
+                else if (WeaponID == 30) ApplySkin(WeapInt, Properties.Settings.Default.TEC9_SkinID, Properties.Settings.Default.Killstreaknumber);// TEC-9
+                else if (WeaponID == 32) ApplySkin(WeapInt, Properties.Settings.Default.P2000_SkinID, Properties.Settings.Default.Killstreaknumber); // P2000
+                else if (WeaponID == 33) ApplySkin(WeapInt, Properties.Settings.Default.MP7_SkinID, Properties.Settings.Default.Killstreaknumber); // MP7
+                else if (WeaponID == 34) ApplySkin(WeapInt, Properties.Settings.Default.MP9_SkinID, Properties.Settings.Default.Killstreaknumber); // MP9
+                else if (WeaponID == 35) ApplySkin(WeapInt, Properties.Settings.Default.NOVA_SkinID, Properties.Settings.Default.Killstreaknumber); // Nova
+                else if (WeaponID == 36) ApplySkin(WeapInt, Properties.Settings.Default.P250_SkinID, Properties.Settings.Default.Killstreaknumber); // P250
+                else if (WeaponID == 38) ApplySkin(WeapInt, Properties.Settings.Default.SCAR20_SkinID, Properties.Settings.Default.Killstreaknumber); // SCAR-20
+                else if (WeaponID == 39) ApplySkin(WeapInt, Properties.Settings.Default.SG553_SkinID, Properties.Settings.Default.Killstreaknumber); // SG-553
+                else if (WeaponID == 40) ApplySkin(WeapInt, Properties.Settings.Default.SSG08_SkinID, Properties.Settings.Default.Killstreaknumber); // SSG 08
+                else if (WeaponID == 60) ApplySkin(WeapInt, Properties.Settings.Default.M4A1S_SkinID, Properties.Settings.Default.Killstreaknumber);// M4A1-S
+                else if (WeaponID == 61) ApplySkin(WeapInt, Properties.Settings.Default.USPS_SkinID, Properties.Settings.Default.Killstreaknumber); // USP-S
+                else if (WeaponID == 63) ApplySkin(WeapInt, Properties.Settings.Default.CZ75Auto_SkinID, Properties.Settings.Default.Killstreaknumber); // CZ75-Auto
+                else if (WeaponID == 64) ApplySkin(WeapInt, Properties.Settings.Default.R8REVOLVER_SkinID, Properties.Settings.Default.Killstreaknumber); // R8 Revolver
 
-                }
-                else if (WeaponID == 2) // Dual Berettas
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.DUALBERETTAS_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
+              
 
-                }
-
-                else if (WeaponID == 3) //Five-SeveN
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.FIVESEVEN_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 4) // Glock-18
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.Glock18_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-
-                else if (WeaponID == 7 && WeaponSkinID != Properties.Settings.Default.AK47_SkinID) // Ak-47
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.AK47_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                    vam.WriteInt32((IntPtr)LocalPlayer + 0x16C, -1);
-
-                }
-
-                else if (WeaponID == 8) // AUG
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.AUG_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 9) // AWP
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.AWP_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 10) // FAMAS
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.FAMAS_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 11) // G3SSG1
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.G3SG1_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 13) // Galil AR
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.GALILAR_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 14) // M249
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.M249_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 16) // M4A4
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.M4A4_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 17) // MAC-10
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.MAC10_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 19) // P90 
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.P90_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 23) // Mp5-SD
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.MP5SD_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 24) // UMP-45
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.UMP45_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 25) // XM1014 
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.XM1014_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 26) // PP-Bizon
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.PPBIZON_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 27) // MAG-7
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.MAG7_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 28) // NEGEV
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.NEGEV_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 29) // Sawed-Off
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.SAWEDOFF_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 30) // TEC-9
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.TEC9_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 32) // P2000
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.P2000_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 33) // MP7
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.MP7_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 34) // MP9
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.MP9_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 35) // Nova
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.NOVA_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 36) // P250
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.P250_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 38) // SCAR-20
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.SCAR20_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 39) // SG-553
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.SG553_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 40) // SSG 08
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.SSG08_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 60) // M4A1-S
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.M4A1S_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 61) // USP-S
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.USPS_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 63) // CZ75-Auto
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.CZ75Auto_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
-                else if (WeaponID == 64) // R8 Revolver
-                {
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit,
-                        Properties.Settings.Default.R8REVOLVER_SkinID); // Skin ID
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak,
-                        Properties.Settings.Default.Killstreaknumber); // Kill streak number
-                    vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-                    vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0.01f); // Float value
-
-                }
+                vam.WriteInt32((IntPtr)Offsets.dwClientState_GetLocalPlayer + 0x16C, -1);
 
 
 
@@ -648,8 +383,6 @@ namespace Eclipse
                 Properties.Settings.Default.Save();
             }
         } // Skin changer
-
-
         private void Radar()
         {
             while (radarCheck.Checked)
@@ -664,87 +397,7 @@ namespace Eclipse
             }
         } // Radar hack
 
-        private void startGame()
-        {
-            if (GetModule())
-            { 
-
-                fJump = BClient + Offsets.dwForceJump;
-                aLocalPlayer = BClient + Offsets.dwLocalPlayer;
-                LocalPlayer = vam.ReadInt32((IntPtr)aLocalPlayer);
-
-                fAttack = BClient + Offsets.dwForceAttack;
-                aFlags = LocalPlayer + Offsets.m_fFlags;
-
-                glowObject = vam.ReadInt32((IntPtr)BClient + Offsets.dwGlowObjectManager);
-                myTeam = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_iTeamNum);
-
-                aLocalPlayer = BClient + aLocalPlayer;
-
-
-                Thread BG = new Thread(BackgroundRunner);
-                BG.Start();
-
-
-            }
-        }
-
-
-        private void BackgroundRunner()
-        {
-            while (true)
-            {
-                fJump = BClient + Offsets.dwForceJump;
-                aLocalPlayer = BClient + Offsets.dwLocalPlayer;
-                LocalPlayer = vam.ReadInt32((IntPtr)aLocalPlayer);
-
-                fAttack = BClient + Offsets.dwForceAttack;
-                aFlags = LocalPlayer + Offsets.m_fFlags;
-
-                glowObject = vam.ReadInt32((IntPtr)BClient + Offsets.dwGlowObjectManager);
-                myTeam = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_iTeamNum);
-
-                aLocalPlayer = BClient + aLocalPlayer;
-
-                Thread.Sleep(5000);
-
-            }
-        }
-
-     
-
-
-
-        // Fixing the colors of the program
-        void FixColors()
-        {
-            var color = MetroFramework.MetroColorStyle.Purple;
-            CheatTabs.Style =color;
-            // Misc
-            antiFlashCheck.Style = color;
-            skinChangerCheck.Style = color;
-            bunnyCheck.Style = color;
-            thirdPersonCheck.Style = color;
-            // Aim
-            triggerbotCheck.Style = color;
-            // Visuals
-            glowCheck.Style = color;
-            onlyEnemyGlow.Style = color;
-            healthBasedGlowCheck.Style = color;
-            radarCheck.Style = color;
-
-            // Fix saved'
-            // Scrolls
-            antiFlashScroll.Value = Properties.Settings.Default.DelayAntiFlash;
-            metroLabel7.Text = delayAntiFlash.Value + " ms";
-
-
-            tiggerbotDelay.Value = Properties.Settings.Default.DelayTriggerBot;
-            metroLabel5.Text = tiggerbotDelay.Value + " ms";
-
-            // Misc
-            hasToBeScopedCheck.Style = color;
-        }
+       
 
         //  When the form is closed
         void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -768,8 +421,7 @@ namespace Eclipse
 
         }
 
-        // Visuals
-       
+        // Checks
         private void glowCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (glowCheck.Checked)
@@ -786,9 +438,6 @@ namespace Eclipse
                 Glow.Start();
             }
         }
-
-        // Misc
-
         private void antiFlashCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (antiFlashCheck.Checked)
@@ -805,13 +454,11 @@ namespace Eclipse
                 SkinChanger.Start();
             }
         }
-
         private void thirdPersonCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (thirdPersonCheck.Checked) vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iObserverMode, 1);
             else vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iObserverMode, 0);
         }
-
         private void bunnyCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (bunnyCheck.Checked)
@@ -820,8 +467,6 @@ namespace Eclipse
                 BunnyHop.Start();
             }
         }
-
-        // Aim hacks
         private void triggerbotCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (triggerbotCheck.Checked)
@@ -830,8 +475,7 @@ namespace Eclipse
                 TriggerBot.Start();
             }
         }
-
-        // Other
+        // Scrolls
         private void tiggerbotDelay_Scroll(object sender, ScrollEventArgs e)
         {
             double indexDbl = (tiggerbotDelay.Value * 1.0) / 5;
@@ -856,8 +500,7 @@ namespace Eclipse
             Properties.Settings.Default.DelayAntiFlash = antiFlashScroll.Value;
             Properties.Settings.Default.Save();
         }
-
-
+        // New skin
         private void applySkinUpdate_Click(object sender, EventArgs e)
         {
             string gun = weaponName.Text.Replace("-", "");
@@ -866,21 +509,5 @@ namespace Eclipse
             Properties.Settings.Default[gun.Replace(" ", "") + "_SkinID"] = Convert.ToInt32(skinID.Text);
             Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
-
-        
-
-
-
-
-
-
-        /* private void applySkinUpdate_Click(object sender, EventArgs e)
-{
-string gun = weaponName.Text.Replace("-", "");
-
-Properties.Settings.Default[gun.Replace(" ", "") + "_SkinID"] = Convert.ToInt32(skinID.Text);
-Properties.Settings.Default.Save(); // Saves settings in application configuration file
-}*/
-
     }
 }
