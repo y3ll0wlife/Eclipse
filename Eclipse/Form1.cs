@@ -25,6 +25,8 @@ namespace Eclipse
             this.Style = MetroFramework.MetroColorStyle.Purple;
             FixColors();
             startGame();
+
+          
         }
         // Importing and setting default variables
         [DllImport("user32.dll")]
@@ -120,11 +122,12 @@ namespace Eclipse
             onlyEnemyGlow.Style = color;
             healthBasedGlowCheck.Style = color;
             radarCheck.Style = color;
+            fovCheck.Style = color;
 
             // Fix saved'
             // Scrolls
             antiFlashScroll.Value = Properties.Settings.Default.DelayAntiFlash;
-            metroLabel7.Text = delayAntiFlash.Value + " ms";
+            metroLabel7.Text = antiFlashScroll.Value + " ms";
 
 
             tiggerbotDelay.Value = Properties.Settings.Default.DelayTriggerBot;
@@ -395,7 +398,21 @@ namespace Eclipse
 
                 Thread.Sleep(10);
             }
-        } // Radar hack
+        } // Radar
+        private void Fov()
+        {
+            while (fovCheck.Checked)
+            {
+               vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iFOV, fovSlider.Value);
+               Thread.Sleep(10);
+            }
+
+            while (!fovCheck.Checked)
+            {
+                vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iFOV, 90);
+                Thread.Sleep(10);
+            }
+        } // Fov changer
 
        
 
@@ -475,6 +492,16 @@ namespace Eclipse
                 TriggerBot.Start();
             }
         }
+        private void fovCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fovCheck.Checked)
+            {
+                Thread f = new Thread(this.Fov);
+                f.Start();
+            }
+           
+
+        }
         // Scrolls
         private void tiggerbotDelay_Scroll(object sender, ScrollEventArgs e)
         {
@@ -500,6 +527,11 @@ namespace Eclipse
             Properties.Settings.Default.DelayAntiFlash = antiFlashScroll.Value;
             Properties.Settings.Default.Save();
         }
+        private void fovSlider_Scroll(object sender, ScrollEventArgs e)
+        {
+            //if(fovCheck.Checked) vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iFOV, fovSlider.Value);
+            metroLabel3.Text = fovSlider.Value.ToString();
+        }
         // New skin
         private void applySkinUpdate_Click(object sender, EventArgs e)
         {
@@ -509,5 +541,7 @@ namespace Eclipse
             Properties.Settings.Default[gun.Replace(" ", "") + "_SkinID"] = Convert.ToInt32(skinID.Text);
             Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
+
+       
     }
 }

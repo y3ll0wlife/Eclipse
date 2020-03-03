@@ -39,6 +39,11 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.delayAntiFlash = new MetroFramework.Controls.MetroTrackBar();
             this.antiFlashCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.visualTab = new MetroFramework.Controls.MetroTabPage();
+            this.radarCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.glowCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.healthBasedGlowCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.onlyEnemyGlow = new MetroFramework.Controls.MetroCheckBox();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.applySkinUpdate = new MetroFramework.Controls.MetroButton();
             this.skinID = new MetroFramework.Controls.MetroTextBox();
@@ -49,29 +54,28 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.tiggerbotDelay = new MetroFramework.Controls.MetroTrackBar();
             this.triggerbotCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.visualTab = new MetroFramework.Controls.MetroTabPage();
-            this.radarCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.glowCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.healthBasedGlowCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.onlyEnemyGlow = new MetroFramework.Controls.MetroCheckBox();
+            this.fovCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.fovSlider = new MetroFramework.Controls.MetroTrackBar();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.CheatTabs.SuspendLayout();
             this.miscTab.SuspendLayout();
+            this.visualTab.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.aimTab.SuspendLayout();
-            this.visualTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // CheatTabs
             // 
             this.CheatTabs.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.CheatTabs.Controls.Add(this.miscTab);
+            this.CheatTabs.Controls.Add(this.aimTab);
             this.CheatTabs.Controls.Add(this.visualTab);
             this.CheatTabs.Controls.Add(this.metroTabPage1);
-            this.CheatTabs.Controls.Add(this.aimTab);
             this.CheatTabs.Location = new System.Drawing.Point(10, 52);
             this.CheatTabs.Name = "CheatTabs";
             this.CheatTabs.RightToLeftLayout = true;
-            this.CheatTabs.SelectedIndex = 3;
+            this.CheatTabs.SelectedIndex = 1;
             this.CheatTabs.Size = new System.Drawing.Size(797, 394);
             this.CheatTabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.CheatTabs.TabIndex = 0;
@@ -188,6 +192,73 @@
             this.antiFlashCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.antiFlashCheck.UseVisualStyleBackColor = true;
             this.antiFlashCheck.CheckedChanged += new System.EventHandler(this.antiFlashCheck_CheckedChanged);
+            // 
+            // visualTab
+            // 
+            this.visualTab.Controls.Add(this.fovSlider);
+            this.visualTab.Controls.Add(this.metroLabel3);
+            this.visualTab.Controls.Add(this.fovCheck);
+            this.visualTab.Controls.Add(this.metroLabel4);
+            this.visualTab.Controls.Add(this.radarCheck);
+            this.visualTab.Controls.Add(this.glowCheck);
+            this.visualTab.Controls.Add(this.healthBasedGlowCheck);
+            this.visualTab.Controls.Add(this.onlyEnemyGlow);
+            this.visualTab.HorizontalScrollbarBarColor = true;
+            this.visualTab.Location = new System.Drawing.Point(4, 38);
+            this.visualTab.Name = "visualTab";
+            this.visualTab.Size = new System.Drawing.Size(789, 352);
+            this.visualTab.TabIndex = 2;
+            this.visualTab.Text = "Visual";
+            this.visualTab.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.visualTab.VerticalScrollbarBarColor = true;
+            // 
+            // radarCheck
+            // 
+            this.radarCheck.AutoSize = true;
+            this.radarCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.radarCheck.Location = new System.Drawing.Point(3, 48);
+            this.radarCheck.Name = "radarCheck";
+            this.radarCheck.Size = new System.Drawing.Size(74, 25);
+            this.radarCheck.TabIndex = 10;
+            this.radarCheck.Text = "Radar";
+            this.radarCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.radarCheck.UseVisualStyleBackColor = true;
+            this.radarCheck.CheckedChanged += new System.EventHandler(this.radarCheck_CheckedChanged);
+            // 
+            // glowCheck
+            // 
+            this.glowCheck.AutoSize = true;
+            this.glowCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.glowCheck.Location = new System.Drawing.Point(3, 17);
+            this.glowCheck.Name = "glowCheck";
+            this.glowCheck.Size = new System.Drawing.Size(68, 25);
+            this.glowCheck.TabIndex = 7;
+            this.glowCheck.Text = "Glow";
+            this.glowCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.glowCheck.UseVisualStyleBackColor = true;
+            this.glowCheck.CheckedChanged += new System.EventHandler(this.glowCheck_CheckedChanged);
+            // 
+            // healthBasedGlowCheck
+            // 
+            this.healthBasedGlowCheck.AutoSize = true;
+            this.healthBasedGlowCheck.Location = new System.Drawing.Point(565, 17);
+            this.healthBasedGlowCheck.Name = "healthBasedGlowCheck";
+            this.healthBasedGlowCheck.Size = new System.Drawing.Size(151, 15);
+            this.healthBasedGlowCheck.TabIndex = 9;
+            this.healthBasedGlowCheck.Text = "Health based glow color";
+            this.healthBasedGlowCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.healthBasedGlowCheck.UseVisualStyleBackColor = true;
+            // 
+            // onlyEnemyGlow
+            // 
+            this.onlyEnemyGlow.AutoSize = true;
+            this.onlyEnemyGlow.Location = new System.Drawing.Point(565, 48);
+            this.onlyEnemyGlow.Name = "onlyEnemyGlow";
+            this.onlyEnemyGlow.Size = new System.Drawing.Size(116, 15);
+            this.onlyEnemyGlow.TabIndex = 8;
+            this.onlyEnemyGlow.Text = "Only enemy glow";
+            this.onlyEnemyGlow.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.onlyEnemyGlow.UseVisualStyleBackColor = true;
             // 
             // metroTabPage1
             // 
@@ -343,68 +414,52 @@
             this.triggerbotCheck.UseVisualStyleBackColor = true;
             this.triggerbotCheck.CheckedChanged += new System.EventHandler(this.triggerbotCheck_CheckedChanged);
             // 
-            // visualTab
+            // fovCheck
             // 
-            this.visualTab.Controls.Add(this.radarCheck);
-            this.visualTab.Controls.Add(this.glowCheck);
-            this.visualTab.Controls.Add(this.healthBasedGlowCheck);
-            this.visualTab.Controls.Add(this.onlyEnemyGlow);
-            this.visualTab.HorizontalScrollbarBarColor = true;
-            this.visualTab.Location = new System.Drawing.Point(4, 38);
-            this.visualTab.Name = "visualTab";
-            this.visualTab.Size = new System.Drawing.Size(789, 352);
-            this.visualTab.TabIndex = 2;
-            this.visualTab.Text = "Visual";
-            this.visualTab.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.visualTab.VerticalScrollbarBarColor = true;
+            this.fovCheck.AutoSize = true;
+            this.fovCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.fovCheck.Location = new System.Drawing.Point(77, 17);
+            this.fovCheck.Name = "fovCheck";
+            this.fovCheck.Size = new System.Drawing.Size(57, 25);
+            this.fovCheck.TabIndex = 11;
+            this.fovCheck.Tag = "";
+            this.fovCheck.Text = "Fov";
+            this.fovCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.fovCheck.UseVisualStyleBackColor = true;
+            this.fovCheck.CheckedChanged += new System.EventHandler(this.fovCheck_CheckedChanged);
             // 
-            // radarCheck
+            // fovSlider
             // 
-            this.radarCheck.AutoSize = true;
-            this.radarCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.radarCheck.Location = new System.Drawing.Point(3, 48);
-            this.radarCheck.Name = "radarCheck";
-            this.radarCheck.Size = new System.Drawing.Size(74, 25);
-            this.radarCheck.TabIndex = 10;
-            this.radarCheck.Text = "Radar";
-            this.radarCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.radarCheck.UseVisualStyleBackColor = true;
-            this.radarCheck.CheckedChanged += new System.EventHandler(this.radarCheck_CheckedChanged);
+            this.fovSlider.BackColor = System.Drawing.Color.Transparent;
+            this.fovSlider.Location = new System.Drawing.Point(494, 84);
+            this.fovSlider.Maximum = 200;
+            this.fovSlider.Name = "fovSlider";
+            this.fovSlider.Size = new System.Drawing.Size(222, 23);
+            this.fovSlider.TabIndex = 21;
+            this.fovSlider.Text = "metroTrackBar1";
+            this.fovSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.fovSlider.Value = 0;
+            this.fovSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.fovSlider_Scroll);
             // 
-            // glowCheck
+            // metroLabel3
             // 
-            this.glowCheck.AutoSize = true;
-            this.glowCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.glowCheck.Location = new System.Drawing.Point(3, 17);
-            this.glowCheck.Name = "glowCheck";
-            this.glowCheck.Size = new System.Drawing.Size(68, 25);
-            this.glowCheck.TabIndex = 7;
-            this.glowCheck.Text = "Glow";
-            this.glowCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.glowCheck.UseVisualStyleBackColor = true;
-            this.glowCheck.CheckedChanged += new System.EventHandler(this.glowCheck_CheckedChanged);
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(722, 84);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(15, 19);
+            this.metroLabel3.TabIndex = 20;
+            this.metroLabel3.Text = "x";
+            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // healthBasedGlowCheck
+            // metroLabel4
             // 
-            this.healthBasedGlowCheck.AutoSize = true;
-            this.healthBasedGlowCheck.Location = new System.Drawing.Point(565, 17);
-            this.healthBasedGlowCheck.Name = "healthBasedGlowCheck";
-            this.healthBasedGlowCheck.Size = new System.Drawing.Size(151, 15);
-            this.healthBasedGlowCheck.TabIndex = 9;
-            this.healthBasedGlowCheck.Text = "Health based glow color";
-            this.healthBasedGlowCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.healthBasedGlowCheck.UseVisualStyleBackColor = true;
-            // 
-            // onlyEnemyGlow
-            // 
-            this.onlyEnemyGlow.AutoSize = true;
-            this.onlyEnemyGlow.Location = new System.Drawing.Point(565, 48);
-            this.onlyEnemyGlow.Name = "onlyEnemyGlow";
-            this.onlyEnemyGlow.Size = new System.Drawing.Size(116, 15);
-            this.onlyEnemyGlow.TabIndex = 8;
-            this.onlyEnemyGlow.Text = "Only enemy glow";
-            this.onlyEnemyGlow.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.onlyEnemyGlow.UseVisualStyleBackColor = true;
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(458, 84);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(30, 19);
+            this.metroLabel4.TabIndex = 19;
+            this.metroLabel4.Text = "Fov";
+            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // Form1
             // 
@@ -420,11 +475,11 @@
             this.CheatTabs.ResumeLayout(false);
             this.miscTab.ResumeLayout(false);
             this.miscTab.PerformLayout();
+            this.visualTab.ResumeLayout(false);
+            this.visualTab.PerformLayout();
             this.metroTabPage1.ResumeLayout(false);
             this.aimTab.ResumeLayout(false);
             this.aimTab.PerformLayout();
-            this.visualTab.ResumeLayout(false);
-            this.visualTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -456,6 +511,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroTrackBar antiFlashScroll;
         private MetroFramework.Controls.MetroCheckBox radarCheck;
+        private MetroFramework.Controls.MetroTrackBar fovSlider;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroCheckBox fovCheck;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }
 
