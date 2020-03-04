@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using MetroFramework.Forms;
@@ -20,19 +22,19 @@ namespace Eclipse
         public Form1()
         {
             InitializeComponent();
-
+            
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
             this.Style = MetroFramework.MetroColorStyle.Purple;
             FixColors();
             startGame();
 
-          
+     
         }
         // Importing and setting default variables
         [DllImport("user32.dll")]
         public static extern int GetAsyncKeyState(int vKey);
 
-
+        
         public static int oEntityLoopDistance = 0x00000010; //
 
         public static string ProcessName = "csgo";
@@ -51,7 +53,6 @@ namespace Eclipse
 
         // Memory
         VAMemory vam = new VAMemory(ProcessName);
-
 
         // When program is launched
         private void startGame()
@@ -74,7 +75,6 @@ namespace Eclipse
 
                 Thread BG = new Thread(BackgroundRunner);
                 BG.Start();
-
 
             }
         }
@@ -140,6 +140,7 @@ namespace Eclipse
         {
             while (true)
             {
+              
                 fJump = BClient + Offsets.dwForceJump;
                 aLocalPlayer = BClient + Offsets.dwLocalPlayer;
                 LocalPlayer = vam.ReadInt32((IntPtr)aLocalPlayer);
@@ -227,17 +228,6 @@ namespace Eclipse
 
                     int entityHealth = vam.ReadInt32((IntPtr)entity + Offsets.m_iHealth);
 
-
-
-                    /*
-                       Red	    | 1, 0, 0, 1
-                       Blue	    | 0, 0, 2, 1
-                       Yellow	| 1, 1, 0, 6
-                       White	| 1, 1, 1, 1
-                       Cyan	    | 0, 1, 2, 1
-                       Green	| 0, 2, 0, 1
-                       Pink	    | 1, 0, 1, 1
-                     */
 
                     if (myTeam == entityTeam)
                     {
@@ -414,7 +404,6 @@ namespace Eclipse
             }
         } // Fov changer
 
-       
 
         //  When the form is closed
         void Form1_FormClosed(object sender, FormClosedEventArgs e)

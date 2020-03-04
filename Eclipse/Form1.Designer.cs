@@ -75,7 +75,7 @@
             this.CheatTabs.Location = new System.Drawing.Point(10, 52);
             this.CheatTabs.Name = "CheatTabs";
             this.CheatTabs.RightToLeftLayout = true;
-            this.CheatTabs.SelectedIndex = 1;
+            this.CheatTabs.SelectedIndex = 0;
             this.CheatTabs.Size = new System.Drawing.Size(797, 394);
             this.CheatTabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.CheatTabs.TabIndex = 0;
@@ -83,6 +83,10 @@
             // 
             // miscTab
             // 
+            this.miscTab.Controls.Add(this.fovSlider);
+            this.miscTab.Controls.Add(this.metroLabel3);
+            this.miscTab.Controls.Add(this.fovCheck);
+            this.miscTab.Controls.Add(this.metroLabel4);
             this.miscTab.Controls.Add(this.antiFlashScroll);
             this.miscTab.Controls.Add(this.thirdPersonCheck);
             this.miscTab.Controls.Add(this.bunnyCheck);
@@ -195,10 +199,6 @@
             // 
             // visualTab
             // 
-            this.visualTab.Controls.Add(this.fovSlider);
-            this.visualTab.Controls.Add(this.metroLabel3);
-            this.visualTab.Controls.Add(this.fovCheck);
-            this.visualTab.Controls.Add(this.metroLabel4);
             this.visualTab.Controls.Add(this.radarCheck);
             this.visualTab.Controls.Add(this.glowCheck);
             this.visualTab.Controls.Add(this.healthBasedGlowCheck);
@@ -418,7 +418,7 @@
             // 
             this.fovCheck.AutoSize = true;
             this.fovCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.fovCheck.Location = new System.Drawing.Point(77, 17);
+            this.fovCheck.Location = new System.Drawing.Point(9, 79);
             this.fovCheck.Name = "fovCheck";
             this.fovCheck.Size = new System.Drawing.Size(57, 25);
             this.fovCheck.TabIndex = 11;
@@ -431,7 +431,7 @@
             // fovSlider
             // 
             this.fovSlider.BackColor = System.Drawing.Color.Transparent;
-            this.fovSlider.Location = new System.Drawing.Point(494, 84);
+            this.fovSlider.Location = new System.Drawing.Point(487, 46);
             this.fovSlider.Maximum = 200;
             this.fovSlider.Name = "fovSlider";
             this.fovSlider.Size = new System.Drawing.Size(222, 23);
@@ -444,7 +444,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(722, 84);
+            this.metroLabel3.Location = new System.Drawing.Point(715, 46);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(15, 19);
             this.metroLabel3.TabIndex = 20;
@@ -454,7 +454,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(458, 84);
+            this.metroLabel4.Location = new System.Drawing.Point(451, 46);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(30, 19);
             this.metroLabel4.TabIndex = 19;
