@@ -84,7 +84,7 @@ namespace Eclipse
         public const Int32 m_nFallbackPaintKit = 0x31B8;
         public const Int32 m_nFallbackSeed = 0x31BC;
         public const Int32 m_nFallbackStatTrak = 0x31C4;
-        public const Int32 m_nForceBone = 0x268C;
+        public const Int32 m_nForceBone= 0x268C;
         public const Int32 m_nTickBase = 0x3430;
         public const Int32 m_rgflCoordinateFrame = 0x444;
         public const Int32 m_szCustomName = 0x303C;

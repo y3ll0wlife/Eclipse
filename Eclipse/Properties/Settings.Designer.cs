@@ -478,5 +478,245 @@ namespace Eclipse.Properties {
                 this["DelayAntiFlash"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AntiFlashToggled {
+            get {
+                return ((bool)(this["AntiFlashToggled"]));
+            }
+            set {
+                this["AntiFlashToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FovToggled {
+            get {
+                return ((bool)(this["FovToggled"]));
+            }
+            set {
+                this["FovToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool BunnyhopToggled {
+            get {
+                return ((bool)(this["BunnyhopToggled"]));
+            }
+            set {
+                this["BunnyhopToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SkinChangerToggled {
+            get {
+                return ((bool)(this["SkinChangerToggled"]));
+            }
+            set {
+                this["SkinChangerToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ThirdpersonToggled {
+            get {
+                return ((bool)(this["ThirdpersonToggled"]));
+            }
+            set {
+                this["ThirdpersonToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TriggerbotToggled {
+            get {
+                return ((bool)(this["TriggerbotToggled"]));
+            }
+            set {
+                this["TriggerbotToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int FovSlider {
+            get {
+                return ((int)(this["FovSlider"]));
+            }
+            set {
+                this["FovSlider"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TriggerbotShootTeammates {
+            get {
+                return ((bool)(this["TriggerbotShootTeammates"]));
+            }
+            set {
+                this["TriggerbotShootTeammates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GlowToggled {
+            get {
+                return ((bool)(this["GlowToggled"]));
+            }
+            set {
+                this["GlowToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GlowHealthBased {
+            get {
+                return ((bool)(this["GlowHealthBased"]));
+            }
+            set {
+                this["GlowHealthBased"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GlowOnlyEnemy {
+            get {
+                return ((bool)(this["GlowOnlyEnemy"]));
+            }
+            set {
+                this["GlowOnlyEnemy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RadarToggled {
+            get {
+                return ((bool)(this["RadarToggled"]));
+            }
+            set {
+                this["RadarToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChamsToggled {
+            get {
+                return ((bool)(this["ChamsToggled"]));
+            }
+            set {
+                this["ChamsToggled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChamEnemyRed {
+            get {
+                return ((int)(this["ChamEnemyRed"]));
+            }
+            set {
+                this["ChamEnemyRed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChamEnemyGreen {
+            get {
+                return ((int)(this["ChamEnemyGreen"]));
+            }
+            set {
+                this["ChamEnemyGreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChamEnemyBlue {
+            get {
+                return ((int)(this["ChamEnemyBlue"]));
+            }
+            set {
+                this["ChamEnemyBlue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChamFriendlyRed {
+            get {
+                return ((int)(this["ChamFriendlyRed"]));
+            }
+            set {
+                this["ChamFriendlyRed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChamFriendlyGreen {
+            get {
+                return ((int)(this["ChamFriendlyGreen"]));
+            }
+            set {
+                this["ChamFriendlyGreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChamFriendlyBlue {
+            get {
+                return ((int)(this["ChamFriendlyBlue"]));
+            }
+            set {
+                this["ChamFriendlyBlue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChamBrightness {
+            get {
+                return ((int)(this["ChamBrightness"]));
+            }
+            set {
+                this["ChamBrightness"] = value;
+            }
+        }
     }
 }
