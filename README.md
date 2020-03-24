@@ -39,6 +39,9 @@ Eclipse was created and used to play with bots and on servers that you own, I (t
 
 ## Change log
 
+##### `3.1 | 2020-03-24`
+- Offsets updated
+
 ##### `3.0 | 2020-03-10`
 
 - GUI
