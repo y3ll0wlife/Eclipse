@@ -26,9 +26,9 @@ namespace Eclipse
             
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
             this.Style = MetroFramework.MetroColorStyle.Purple;
+            
             FixColors();
-            startGame();
-
+            StartGame();
         }
 
         // Importing and setting default variables
@@ -53,23 +53,34 @@ namespace Eclipse
         private int myTeam;
 
         // Memory
-        VAMemory vam = new VAMemory(ProcessName);
+        
+        public static bool Start()
+        {
+            Memory.OpenProcess(ProcessName);
+            Memory.ProcessHandle();
+            Memory.GetModules();
+
+            BClient = Memory.Client;
+            EngineBase = Memory.Engine;
+
+            return true;
+        }
 
         // When program is launched
-        private void startGame()
+        private void StartGame()
         {
-            if (GetModule())
+            if (Start())
             {
 
                 fJump = BClient + Offsets.dwForceJump;
                 aLocalPlayer = BClient + Offsets.dwLocalPlayer;
-                LocalPlayer = vam.ReadInt32((IntPtr)aLocalPlayer);
+                LocalPlayer = Memory.Read<int>(aLocalPlayer);
 
                 fAttack = BClient + Offsets.dwForceAttack;
                 aFlags = LocalPlayer + Offsets.m_fFlags;
 
-                glowObject = vam.ReadInt32((IntPtr)BClient + Offsets.dwGlowObjectManager);
-                myTeam = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_iTeamNum);
+                glowObject = Memory.Read<int>(BClient + Offsets.dwGlowObjectManager);
+                myTeam = Memory.Read<int>(LocalPlayer + Offsets.m_iTeamNum);
 
                 aLocalPlayer = BClient + aLocalPlayer;
 
@@ -79,33 +90,7 @@ namespace Eclipse
 
             }
         }
-        static bool GetModule()
-        {
-            try
-            {
-                Process[] p = Process.GetProcessesByName(ProcessName);
-                if (p.Length > 0)
-                {
-                    foreach (ProcessModule m in p[0].Modules) if (m.ModuleName == "client_panorama.dll") BClient = (int)m.BaseAddress;
-                    foreach (ProcessModule m in p[0].Modules)
-                        if (m.ModuleName == "engine.dll")
-                        {
-                            EngineBase = (int)m.BaseAddress;
-                            return true;
-                        }
-                    return false;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-                return false;
-            }
-        }
+      
         private void FixColors()
         {
             var color = MetroFramework.MetroColorStyle.Purple;
@@ -171,17 +156,17 @@ namespace Eclipse
               
                 fJump = BClient + Offsets.dwForceJump;
                 aLocalPlayer = BClient + Offsets.dwLocalPlayer;
-                LocalPlayer = vam.ReadInt32((IntPtr)aLocalPlayer);
+                LocalPlayer = Memory.Read<int>(aLocalPlayer);
 
                 fAttack = BClient + Offsets.dwForceAttack;
                 aFlags = LocalPlayer + Offsets.m_fFlags;
 
-                glowObject = vam.ReadInt32((IntPtr)BClient + Offsets.dwGlowObjectManager);
-                myTeam = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_iTeamNum);
+                glowObject = Memory.Read<int>(BClient + Offsets.dwGlowObjectManager);
+                myTeam = Memory.Read<int>(LocalPlayer + Offsets.m_iTeamNum);
 
                 aLocalPlayer = BClient + aLocalPlayer;
 
-                Thread.Sleep(5000);
+                Thread.Sleep(1);
 
             }
         }
@@ -189,23 +174,24 @@ namespace Eclipse
         // Functions
         private bool IsScoped()
         {
-            return vam.ReadBoolean((IntPtr)LocalPlayer + Offsets.m_bIsScoped);
+            return Memory.Read<bool>(LocalPlayer + Offsets.m_bIsScoped);
         } // Checks if user is scoped
+
         private void Shoot()
         {
             Thread.Sleep(Convert.ToInt32(tiggerbotDelay.Value));
-            vam.WriteInt32((IntPtr)fAttack, 1);
+            Memory.Write<int>(fAttack, 1);
             Thread.Sleep(10);
-            vam.WriteInt32((IntPtr)fAttack, 4);
+            Memory.Write<int>(fAttack, 4);
         } // Force shoot
 
         private void ApplySkin(int WeapInt, int skinID, int KillstreakNum)
         {
-            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_iItemIDHigh, 1);
-            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackPaintKit, skinID); // Skin ID
-            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackStatTrak, KillstreakNum); // Kill streak number
-            vam.WriteInt32((IntPtr)WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-            vam.WriteFloat((IntPtr)WeapInt + Offsets.m_flFallbackWear, 0f); // Float value
+            Memory.Write(WeapInt + Offsets.m_iItemIDHigh, 1);
+            Memory.Write(WeapInt + Offsets.m_nFallbackPaintKit, skinID); // Skin ID
+            Memory.Write(WeapInt + Offsets.m_nFallbackStatTrak, KillstreakNum); // Kill streak number
+            Memory.Write(WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
+            Memory.Write(WeapInt + Offsets.m_flFallbackWear, 0f); // Float value
            
         }
 
@@ -215,11 +201,11 @@ namespace Eclipse
             while (antiFlashCheck.Checked)
             {
                 int flashDur = 0;
-                flashDur = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_flFlashDuration);
+                flashDur = Memory.Read<int>(LocalPlayer + Offsets.m_flFlashDuration);
                 if (flashDur != 0)
                 {
                     Thread.Sleep(antiFlashScroll.Value);
-                    vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_flFlashDuration, 0);
+                    Memory.Write(LocalPlayer + Offsets.m_flFlashDuration, 0);
                 }
                 Thread.Sleep(10);
             }
@@ -229,16 +215,16 @@ namespace Eclipse
             while (bunnyCheck.Checked)
             {
                 while (GetAsyncKeyState(32) > 0)
-                {
-                    int flags = vam.ReadInt32((IntPtr)aFlags);
-                    if (flags == 257 || flags == 263)
-                    {
-                        vam.WriteInt32((IntPtr)fJump, 5);
-                        Thread.Sleep(10);
-                        vam.WriteInt32((IntPtr)fJump, 4);
-                    }
-                    
+                { 
+                    int flag = Memory.Read<int>(aFlags);
 
+                    if (flag == 257 || flag == 263)
+                    {
+                        Memory.Write(fJump, 5);
+                        Thread.Sleep(10);
+                        Memory.Write(fJump, 4);
+
+                    }
 
                 }
                 Thread.Sleep(10);
@@ -250,21 +236,22 @@ namespace Eclipse
             {
                 for (int i = 0; i < 64; i++)
                 {
-                    int entity = vam.ReadInt32((IntPtr)BClient + Offsets.dwEntityList + i * 0x10);
+                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
 
-                    int glowIndx = vam.ReadInt32((IntPtr)entity + Offsets.m_iGlowIndex);
-                    int entityTeam = vam.ReadInt32((IntPtr)entity + Offsets.m_iTeamNum);
+                    int glowIndx = Memory.Read<int>(entity + Offsets.m_iGlowIndex);
+                    int entityTeam = Memory.Read<int>(entity + Offsets.m_iTeamNum);
 
-                    int entityHealth = vam.ReadInt32((IntPtr)entity + Offsets.m_iHealth);
+                    int entityHealth = Memory.Read<int>(entity + Offsets.m_iHealth);
 
 
+                  
                     if (myTeam == entityTeam)
                     {
                         if (onlyEnemyGlow.Checked) continue;
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0x4), 0);
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0x8), 0);
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0xC), 2);
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0x10), 1);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x4), 0);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x8), 0);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0xC), 2);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x10), 1);
                     }
                     else
                     {
@@ -295,14 +282,14 @@ namespace Eclipse
                             val4 = 1;
                         }
 
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0x4), val1);
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0x8), val2);
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0xC), val3);
-                        vam.WriteFloat((IntPtr)glowObject + ((glowIndx * 0x38) + 0x10), val4);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x4), val1);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x8), val2);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0xC), val3);
+                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x10), val4);
                     }
 
-                    vam.WriteBoolean((IntPtr)glowObject + ((glowIndx * 0x38) + 0x24), true);
-                    vam.WriteBoolean((IntPtr)glowObject + ((glowIndx * 0x38) + 0x25), false);
+                    Memory.Write(glowObject + ((glowIndx * 0x38) + 0x24), true);
+                    Memory.Write(glowObject + ((glowIndx * 0x38) + 0x25), false);
 
                 }
                 Thread.Sleep(10);
@@ -313,21 +300,21 @@ namespace Eclipse
             while (triggerbotCheck.Checked)
             {
                 int address = LocalPlayer + Offsets.m_iCrosshairId;
-                int PlayerInCross = vam.ReadInt32((IntPtr)address);
-                int WeaponIndex = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_hActiveWeapon) & 0xFFF;
-                int WeapInt = vam.ReadInt32((IntPtr)(BClient + Offsets.dwEntityList + WeaponIndex * 0x10) - 0x10);
-                int WeaponID = vam.ReadInt32((IntPtr)WeapInt + Offsets.m_iItemDefinitionIndex);
+                int PlayerInCross = Memory.Read<int>(address);
+                int WeaponIndex = Memory.Read<int>(LocalPlayer + Offsets.m_hActiveWeapon) & 0xFFF;
+                int WeapInt = Memory.Read<int>((BClient + Offsets.dwEntityList + WeaponIndex * 0x10) - 0x10);
+                int WeaponID = Memory.Read<int>(WeapInt + Offsets.m_iItemDefinitionIndex);
 
                 if (PlayerInCross > 0 && PlayerInCross < 65)
                 {
                     address = BClient + Offsets.dwEntityList + (PlayerInCross - 1) * oEntityLoopDistance;
-                    int PtrToPIC = vam.ReadInt32((IntPtr)address);
+                    int PtrToPIC = Memory.Read<int>(address);
 
                     address = PtrToPIC + Offsets.m_iHealth;
-                    int PICHealth = vam.ReadInt32((IntPtr)address);
+                    int PICHealth = Memory.Read<int>(address);
 
                     address = PtrToPIC + Offsets.m_iTeamNum;
-                    int PICTeam = vam.ReadInt32((IntPtr)address);
+                    int PICTeam = Memory.Read<int>(address);
 
                     if (((PICTeam != myTeam) && (PICTeam > 1) && (PICHealth > 0)) || shootTeamCheck.Checked && (PICTeam > 1) && (PICHealth > 0))
                     {
@@ -350,9 +337,9 @@ namespace Eclipse
         {
             while (skinChangerCheck.Checked)
             {
-                int WeaponIndex = vam.ReadInt32((IntPtr)LocalPlayer + Offsets.m_hActiveWeapon) & 0xFFF;
-                int WeapInt = vam.ReadInt32((IntPtr)(BClient + Offsets.dwEntityList + WeaponIndex * 0x10) - 0x10);
-                int WeaponID = vam.ReadInt32((IntPtr)WeapInt + Offsets.m_iItemDefinitionIndex);
+                int WeaponIndex = Memory.Read<int>(LocalPlayer + Offsets.m_hActiveWeapon) & 0xFFF;
+                int WeapInt = Memory.Read<int>((BClient + Offsets.dwEntityList + WeaponIndex * 0x10) - 0x10);
+                int WeaponID = Memory.Read<int>(WeapInt + Offsets.m_iItemDefinitionIndex);
               
                 //Debug.WriteLine(WeaponID);
 
@@ -395,12 +382,7 @@ namespace Eclipse
                 else if (WeaponID == 63) ApplySkin(WeapInt, Properties.Settings.Default.CZ75Auto_SkinID, Properties.Settings.Default.Killstreaknumber); // CZ75-Auto
                 else if (WeaponID == 64) ApplySkin(WeapInt, Properties.Settings.Default.R8REVOLVER_SkinID, Properties.Settings.Default.Killstreaknumber); // R8 Revolver
 
-              
-
-                vam.WriteInt32((IntPtr)Offsets.dwClientState_GetLocalPlayer + 0x16C, -1);
-
-
-
+                Memory.Write(Offsets.dwClientState_GetLocalPlayer + 0x16C, -1);
 
                 Properties.Settings.Default.Save();
             }
@@ -411,8 +393,8 @@ namespace Eclipse
             {
                 for (int i = 0; i < 64; i++)
                 {
-                    int entity = vam.ReadInt32((IntPtr) BClient + Offsets.dwEntityList + i * 0x10);
-                    vam.WriteBoolean((IntPtr) entity + Offsets.m_bSpotted, true);
+                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
+                    Memory.Write(entity + Offsets.m_bSpotted, true);
                 }
 
                 Thread.Sleep(10);
@@ -422,7 +404,7 @@ namespace Eclipse
         {
             while (fovCheck.Checked)
             {
-               vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iFOV, fovSlider.Value);
+                Memory.Write(LocalPlayer + Offsets.m_iFOV, fovSlider.Value);
                Thread.Sleep(10);
             }
         } // Fov changer
@@ -432,22 +414,22 @@ namespace Eclipse
             {
                 for (int i = 0; i < 64; i++)
                 {
-                    int entity = vam.ReadInt32((IntPtr)BClient + Offsets.dwEntityList + i * 0x10);
-                    int entityTeam = vam.ReadInt32((IntPtr)entity + Offsets.m_iTeamNum);
+                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
+                    int entityTeam = Memory.Read<int>(entity + Offsets.m_iTeamNum);
 
                     if (myTeam == entityTeam)
                     {
                         //Model Color
-                        vam.WriteByte((IntPtr)entity + 0x70, (byte)redFriendlyCharmSlider.Value); // r
-                        vam.WriteByte((IntPtr)entity + 0x71, (byte)greenFriendlyCharmSlider.Value); // g
-                        vam.WriteByte((IntPtr)entity + 0x72, (byte)blueFriendlyCharmSlider.Value); // b
+                        Memory.Write(entity + 0x70, (byte)redFriendlyCharmSlider.Value); // r
+                        Memory.Write(entity + 0x71, (byte)greenFriendlyCharmSlider.Value); // g
+                        Memory.Write(entity + 0x72, (byte)blueFriendlyCharmSlider.Value); // b
                     }
                     else
                     {
                         //Model Color
-                        vam.WriteByte((IntPtr)entity + 0x70, (byte)redEnemyCharmSlider.Value); // r
-                        vam.WriteByte((IntPtr)entity + 0x71, (byte)greenEnemyCharmSlider.Value); // g
-                        vam.WriteByte((IntPtr)entity + 0x72, (byte)blueEnemyCharmSlider.Value); // b
+                        Memory.Write(entity + 0x70, (byte)redEnemyCharmSlider.Value); // r
+                        Memory.Write(entity + 0x71, (byte)greenEnemyCharmSlider.Value); // g
+                        Memory.Write(entity + 0x72, (byte)blueEnemyCharmSlider.Value); // b
                     }
                     // https://www.unknowncheats.me/forum/counterstrike-global-offensive/305257-clrrender-brightness-external-chams.html
                 }
@@ -458,7 +440,7 @@ namespace Eclipse
                 int intbrightness = BitConverter.ToInt32(bytearray, 0);
                 int xored = intbrightness ^ thisPtr;
 
-                vam.WriteInt32((IntPtr)EngineBase + Offsets.model_ambient_min, xored);
+                Memory.Write(EngineBase + Offsets.model_ambient_min, xored);
 
                 Thread.Sleep(10);
             }
@@ -467,22 +449,22 @@ namespace Eclipse
             {
                 for (int i = 0; i < 64; i++)
                 {
-                    int entity = vam.ReadInt32((IntPtr)BClient + Offsets.dwEntityList + i * 0x10);
-                    int entityTeam = vam.ReadInt32((IntPtr)entity + Offsets.m_iTeamNum);
+                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
+                    int entityTeam = Memory.Read<int>(entity + Offsets.m_iTeamNum);
 
                     if (myTeam == entityTeam)
                     {
                         //Model Color
-                        vam.WriteByte((IntPtr)entity + 0x70, (byte)255); // r
-                        vam.WriteByte((IntPtr)entity + 0x71, (byte)255); // g
-                        vam.WriteByte((IntPtr)entity + 0x72, (byte)255); // b
+                        Memory.Write(entity + 0x70, (byte)255); // r
+                        Memory.Write(entity + 0x71, (byte)255); // g
+                        Memory.Write(entity + 0x72, (byte)255); // b
                     }
                     else
                     {
                         //Model Color
-                        vam.WriteByte((IntPtr)entity + 0x70, (byte)255); // r
-                        vam.WriteByte((IntPtr)entity + 0x71, (byte)255); // g
-                        vam.WriteByte((IntPtr)entity + 0x72, (byte)255); // b
+                        Memory.Write(entity + 0x70, (byte)255); // r
+                        Memory.Write(entity + 0x71, (byte)255); // g
+                        Memory.Write(entity + 0x72, (byte)255); // b
                     }
                     // https://www.unknowncheats.me/forum/counterstrike-global-offensive/305257-clrrender-brightness-external-chams.html
                 }
@@ -494,7 +476,7 @@ namespace Eclipse
                 int intbrightness = BitConverter.ToInt32(bytearray, 0);
                 int xored = intbrightness ^ thisPtr;
 
-                vam.WriteInt32((IntPtr)EngineBase + Offsets.model_ambient_min, xored);
+                Memory.Write(EngineBase + Offsets.model_ambient_min, xored);
 
             }
         }
@@ -567,8 +549,8 @@ namespace Eclipse
         }
         private void thirdPersonCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (thirdPersonCheck.Checked) vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iObserverMode, 1);
-            else vam.WriteInt32((IntPtr)LocalPlayer + Offsets.m_iObserverMode, 0);
+            if (thirdPersonCheck.Checked) Memory.Write(LocalPlayer + Offsets.m_iObserverMode, 1);
+            else Memory.Write(LocalPlayer + Offsets.m_iObserverMode, 0);
 
             Properties.Settings.Default.ThirdpersonToggled = thirdPersonCheck.Checked;
             Properties.Settings.Default.Save();
