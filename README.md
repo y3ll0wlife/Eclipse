@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Eclipse 👋
 </h1>
 <p align="center">
-<a href="https://github.com/y3ll0wlife/Eclipse/releases/download/3.1/Eclipse.zip"><img src="https://img.shields.io/static/v1?style=for-the-badge&logo=sketch&label=Download&message=Latest&color=F7B500" alt=Download" /></a>
+<a href="https://github.com/y3ll0wlife/Eclipse/releases/latest/download/eclipse.zip"><img src="https://img.shields.io/static/v1?style=for-the-badge&logo=sketch&label=Download&message=Latest&color=F7B500" alt=Download" /></a>
 <a href="https://github.com/y3ll0wlife/Eclipse/blob/master/LICENSE"><img src="https://img.shields.io/static/v1?style=for-the-badge&label=License&message=MIT&color=D0072A" alt="License MIT" /></a>
 </p>
 
@@ -10,25 +10,6 @@
 ## ⚠️ Disclaimer
 
 Eclipse was created and used to play with bots and on servers that you own, I (the creator) do not condone the use of Eclipse in official matchmaking.
-
-## ⭐️ Features
-
-### [**Misc**](https://github.com/y3ll0wlife/Eclipse/wiki/Features#misc)
-
-- [Anti Flash](https://github.com/y3ll0wlife/Eclipse/wiki/Features#anti-flash)
-- [Bunnyhop](https://github.com/y3ll0wlife/Eclipse/wiki/Features#bunnyhop)
-- [Skin Changer](https://github.com/y3ll0wlife/Eclipse/wiki/Features#skin-changer)
-- [Thirdperson](https://github.com/y3ll0wlife/Eclipse/wiki/Features#thirdperson)
-- [Fov](https://github.com/y3ll0wlife/Eclipse/wiki/Features#fov)
-
-### [**Aim**](https://github.com/y3ll0wlife/Eclipse/wiki/Features#aim)
-
-- [Triggerbot](https://github.com/y3ll0wlife/Eclipse/wiki/Features#triggerbot)
-
-### [**Visual**](https://github.com/y3ll0wlife/Eclipse/wiki/Features#visual)
-
-- [Glow](https://github.com/y3ll0wlife/Eclipse/wiki/Features#glow)
-- [Radar](https://github.com/y3ll0wlife/Eclipse/wiki/Features#radar)
 
 ## 👤 Author(s)
 
@@ -39,7 +20,7 @@ Eclipse was created and used to play with bots and on servers that you own, I (t
 
 ## Change log
 
-##### `3.1 | 2020-03-24`
+##### `3.1-3.11`
 - Offsets updated
 
 ##### `3.0 | 2020-03-10`
