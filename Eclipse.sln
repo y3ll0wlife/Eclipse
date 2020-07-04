@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eclipse", "Eclipse\Eclipse.csproj", "{20A19501-EBDF-42C9-A8B2-D065EA2832CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eclipse", "Eclipse\Eclipse.csproj", "{46DDA46E-62F3-4A3E-B828-4085BCE62DFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{20A19501-EBDF-42C9-A8B2-D065EA2832CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20A19501-EBDF-42C9-A8B2-D065EA2832CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20A19501-EBDF-42C9-A8B2-D065EA2832CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20A19501-EBDF-42C9-A8B2-D065EA2832CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46DDA46E-62F3-4A3E-B828-4085BCE62DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46DDA46E-62F3-4A3E-B828-4085BCE62DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46DDA46E-62F3-4A3E-B828-4085BCE62DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46DDA46E-62F3-4A3E-B828-4085BCE62DFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D65A7604-E543-46E5-84B6-A464B096F325}
+		SolutionGuid = {F4B717BB-E166-4DA5-8F52-AA5A0FAD19C9}
 	EndGlobalSection
 EndGlobal

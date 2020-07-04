@@ -28,873 +28,661 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.CheatTabs = new MetroFramework.Controls.MetroTabControl();
-            this.miscTab = new MetroFramework.Controls.MetroTabPage();
-            this.fovSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.fovCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.antiFlashScroll = new MetroFramework.Controls.MetroTrackBar();
-            this.thirdPersonCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.bunnyCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.skinChangerCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.delayAntiFlash = new MetroFramework.Controls.MetroTrackBar();
-            this.antiFlashCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.aimTab = new MetroFramework.Controls.MetroTabPage();
-            this.shootTeamCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.hasToBeScopedCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.CheatControl = new MetroFramework.Controls.MetroTabControl();
+            this.Aim = new MetroFramework.Controls.MetroTabPage();
+            this.TriggerbotShootTeammates = new MetroFramework.Controls.MetroCheckBox();
+            this.TriggerbotScopebefore = new MetroFramework.Controls.MetroCheckBox();
+            this.TriggerbotDelayLabel = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.tiggerbotDelay = new MetroFramework.Controls.MetroTrackBar();
-            this.triggerbotCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.visualTab = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.DelayTriggerbotMS = new MetroFramework.Controls.MetroTrackBar();
+            this.TriggerbotCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.ChamBrigtness = new MetroFramework.Controls.MetroTrackBar();
+            this.ChamFriendlyBlue = new MetroFramework.Controls.MetroTrackBar();
+            this.ChamEnemyBlue = new MetroFramework.Controls.MetroTrackBar();
+            this.ChamFriendlyGreen = new MetroFramework.Controls.MetroTrackBar();
+            this.ChamEnemyGreen = new MetroFramework.Controls.MetroTrackBar();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.blueFriendlyCharmSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.greenFriendlyCharmSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.redFriendlyCharmSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.brightnessCharmSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.blueEnemyCharmSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.greenEnemyCharmSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.redEnemyCharmSlider = new MetroFramework.Controls.MetroTrackBar();
-            this.chamsCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.radarCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.glowCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.healthBasedGlowCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.onlyEnemyGlow = new MetroFramework.Controls.MetroCheckBox();
-            this.skinChangerTab = new MetroFramework.Controls.MetroTabPage();
-            this.applySkinUpdate = new MetroFramework.Controls.MetroButton();
-            this.skinID = new MetroFramework.Controls.MetroTextBox();
-            this.weaponName = new MetroFramework.Controls.MetroComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.CheatTabs.SuspendLayout();
-            this.miscTab.SuspendLayout();
-            this.aimTab.SuspendLayout();
-            this.visualTab.SuspendLayout();
-            this.skinChangerTab.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.ChamFriendlyRed = new MetroFramework.Controls.MetroTrackBar();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.ChamEnemyRed = new MetroFramework.Controls.MetroTrackBar();
+            this.ChamsCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.RadarCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.GlowOnlyTeammates = new MetroFramework.Controls.MetroCheckBox();
+            this.GlowOnlyEnemy = new MetroFramework.Controls.MetroCheckBox();
+            this.GlowHealthbased = new MetroFramework.Controls.MetroCheckBox();
+            this.GlowCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.SkinchangerCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.ThirdpersonCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.BunnyhopCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.FovLabel = new MetroFramework.Controls.MetroLabel();
+            this.Fov = new MetroFramework.Controls.MetroLabel();
+            this.FovAmount = new MetroFramework.Controls.MetroTrackBar();
+            this.FovCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.AntiflashDelayLabel = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.AntiflashDelay = new MetroFramework.Controls.MetroTrackBar();
+            this.AntiflashCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.CheatControl.SuspendLayout();
+            this.Aim.SuspendLayout();
+            this.metroTabPage2.SuspendLayout();
+            this.metroTabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // CheatTabs
+            // CheatControl
             // 
-            this.CheatTabs.Alignment = System.Windows.Forms.TabAlignment.Right;
-            this.CheatTabs.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.CheatTabs.Controls.Add(this.miscTab);
-            this.CheatTabs.Controls.Add(this.aimTab);
-            this.CheatTabs.Controls.Add(this.visualTab);
-            this.CheatTabs.Controls.Add(this.skinChangerTab);
-            this.CheatTabs.Location = new System.Drawing.Point(242, 24);
-            this.CheatTabs.Multiline = true;
-            this.CheatTabs.Name = "CheatTabs";
-            this.CheatTabs.RightToLeftLayout = true;
-            this.CheatTabs.SelectedIndex = 3;
-            this.CheatTabs.Size = new System.Drawing.Size(830, 403);
-            this.CheatTabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.CheatTabs.TabIndex = 0;
-            this.CheatTabs.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.CheatControl.Controls.Add(this.Aim);
+            this.CheatControl.Controls.Add(this.metroTabPage1);
+            this.CheatControl.Controls.Add(this.metroTabPage2);
+            this.CheatControl.Controls.Add(this.metroTabPage3);
+            this.CheatControl.Location = new System.Drawing.Point(23, 63);
+            this.CheatControl.Name = "CheatControl";
+            this.CheatControl.SelectedIndex = 2;
+            this.CheatControl.Size = new System.Drawing.Size(882, 372);
+            this.CheatControl.Style = MetroFramework.MetroColorStyle.Orange;
+            this.CheatControl.TabIndex = 0;
+            this.CheatControl.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // miscTab
+            // Aim
             // 
-            this.miscTab.Controls.Add(this.fovSlider);
-            this.miscTab.Controls.Add(this.metroLabel3);
-            this.miscTab.Controls.Add(this.fovCheck);
-            this.miscTab.Controls.Add(this.metroLabel4);
-            this.miscTab.Controls.Add(this.antiFlashScroll);
-            this.miscTab.Controls.Add(this.thirdPersonCheck);
-            this.miscTab.Controls.Add(this.bunnyCheck);
-            this.miscTab.Controls.Add(this.skinChangerCheck);
-            this.miscTab.Controls.Add(this.metroLabel7);
-            this.miscTab.Controls.Add(this.metroLabel2);
-            this.miscTab.Controls.Add(this.delayAntiFlash);
-            this.miscTab.Controls.Add(this.antiFlashCheck);
-            this.miscTab.HorizontalScrollbarBarColor = true;
-            this.miscTab.Location = new System.Drawing.Point(4, 4);
-            this.miscTab.Name = "miscTab";
-            this.miscTab.Size = new System.Drawing.Size(157, 395);
-            this.miscTab.TabIndex = 0;
-            this.miscTab.Text = "Misc";
-            this.miscTab.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.miscTab.VerticalScrollbarBarColor = true;
+            this.Aim.Controls.Add(this.TriggerbotShootTeammates);
+            this.Aim.Controls.Add(this.TriggerbotScopebefore);
+            this.Aim.Controls.Add(this.TriggerbotDelayLabel);
+            this.Aim.Controls.Add(this.metroLabel1);
+            this.Aim.Controls.Add(this.DelayTriggerbotMS);
+            this.Aim.Controls.Add(this.TriggerbotCheck);
+            this.Aim.HorizontalScrollbarBarColor = true;
+            this.Aim.Location = new System.Drawing.Point(4, 35);
+            this.Aim.Name = "Aim";
+            this.Aim.Size = new System.Drawing.Size(874, 333);
+            this.Aim.TabIndex = 0;
+            this.Aim.Text = "Aim";
+            this.Aim.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Aim.VerticalScrollbarBarColor = true;
             // 
-            // fovSlider
+            // TriggerbotShootTeammates
             // 
-            this.fovSlider.BackColor = System.Drawing.Color.Transparent;
-            this.fovSlider.Location = new System.Drawing.Point(39, 107);
-            this.fovSlider.Maximum = 200;
-            this.fovSlider.Name = "fovSlider";
-            this.fovSlider.Size = new System.Drawing.Size(222, 23);
-            this.fovSlider.TabIndex = 21;
-            this.fovSlider.Text = "metroTrackBar1";
-            this.fovSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.fovSlider.Value = 0;
-            this.fovSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.fovSlider_Scroll);
+            this.TriggerbotShootTeammates.AutoSize = true;
+            this.TriggerbotShootTeammates.Location = new System.Drawing.Point(149, 77);
+            this.TriggerbotShootTeammates.Name = "TriggerbotShootTeammates";
+            this.TriggerbotShootTeammates.Size = new System.Drawing.Size(116, 15);
+            this.TriggerbotShootTeammates.Style = MetroFramework.MetroColorStyle.Orange;
+            this.TriggerbotShootTeammates.TabIndex = 7;
+            this.TriggerbotShootTeammates.Text = "Shoot teammates";
+            this.TriggerbotShootTeammates.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TriggerbotShootTeammates.UseVisualStyleBackColor = true;
             // 
-            // metroLabel3
+            // TriggerbotScopebefore
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(269, 107);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(15, 19);
-            this.metroLabel3.TabIndex = 20;
-            this.metroLabel3.Text = "x";
-            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TriggerbotScopebefore.AutoSize = true;
+            this.TriggerbotScopebefore.Location = new System.Drawing.Point(3, 77);
+            this.TriggerbotScopebefore.Name = "TriggerbotScopebefore";
+            this.TriggerbotScopebefore.Size = new System.Drawing.Size(136, 15);
+            this.TriggerbotScopebefore.Style = MetroFramework.MetroColorStyle.Orange;
+            this.TriggerbotScopebefore.TabIndex = 6;
+            this.TriggerbotScopebefore.Text = "Need to scope before";
+            this.TriggerbotScopebefore.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TriggerbotScopebefore.UseVisualStyleBackColor = true;
             // 
-            // fovCheck
+            // TriggerbotDelayLabel
             // 
-            this.fovCheck.AutoSize = true;
-            this.fovCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.fovCheck.Location = new System.Drawing.Point(9, 79);
-            this.fovCheck.Name = "fovCheck";
-            this.fovCheck.Size = new System.Drawing.Size(57, 25);
-            this.fovCheck.TabIndex = 11;
-            this.fovCheck.Tag = "";
-            this.fovCheck.Text = "Fov";
-            this.fovCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.fovCheck.UseVisualStyleBackColor = true;
-            this.fovCheck.CheckedChanged += new System.EventHandler(this.fovCheck_CheckedChanged);
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 107);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(30, 19);
-            this.metroLabel4.TabIndex = 19;
-            this.metroLabel4.Text = "Fov";
-            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // antiFlashScroll
-            // 
-            this.antiFlashScroll.BackColor = System.Drawing.Color.Transparent;
-            this.antiFlashScroll.Location = new System.Drawing.Point(110, 48);
-            this.antiFlashScroll.Maximum = 1000;
-            this.antiFlashScroll.Name = "antiFlashScroll";
-            this.antiFlashScroll.Size = new System.Drawing.Size(222, 23);
-            this.antiFlashScroll.TabIndex = 18;
-            this.antiFlashScroll.Text = "metroTrackBar1";
-            this.antiFlashScroll.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.antiFlashScroll.Value = 0;
-            this.antiFlashScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.antiFlashScroll_Scroll_1);
-            // 
-            // thirdPersonCheck
-            // 
-            this.thirdPersonCheck.AutoSize = true;
-            this.thirdPersonCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.thirdPersonCheck.Location = new System.Drawing.Point(9, 198);
-            this.thirdPersonCheck.Name = "thirdPersonCheck";
-            this.thirdPersonCheck.Size = new System.Drawing.Size(123, 25);
-            this.thirdPersonCheck.TabIndex = 17;
-            this.thirdPersonCheck.Text = "Thirdperson";
-            this.thirdPersonCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.thirdPersonCheck.UseVisualStyleBackColor = true;
-            this.thirdPersonCheck.CheckedChanged += new System.EventHandler(this.thirdPersonCheck_CheckedChanged);
-            // 
-            // bunnyCheck
-            // 
-            this.bunnyCheck.AutoSize = true;
-            this.bunnyCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.bunnyCheck.Location = new System.Drawing.Point(9, 136);
-            this.bunnyCheck.Name = "bunnyCheck";
-            this.bunnyCheck.Size = new System.Drawing.Size(109, 25);
-            this.bunnyCheck.TabIndex = 16;
-            this.bunnyCheck.Text = "Bunnyhop";
-            this.bunnyCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.bunnyCheck.UseVisualStyleBackColor = true;
-            this.bunnyCheck.CheckedChanged += new System.EventHandler(this.bunnyCheck_CheckedChanged);
-            // 
-            // skinChangerCheck
-            // 
-            this.skinChangerCheck.AutoSize = true;
-            this.skinChangerCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.skinChangerCheck.Location = new System.Drawing.Point(9, 167);
-            this.skinChangerCheck.Name = "skinChangerCheck";
-            this.skinChangerCheck.Size = new System.Drawing.Size(132, 25);
-            this.skinChangerCheck.TabIndex = 15;
-            this.skinChangerCheck.Text = "Skin Changer";
-            this.skinChangerCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.skinChangerCheck.UseVisualStyleBackColor = true;
-            this.skinChangerCheck.CheckedChanged += new System.EventHandler(this.skinChangerCheck_CheckedChanged);
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(342, 52);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(36, 19);
-            this.metroLabel7.TabIndex = 12;
-            this.metroLabel7.Text = "x ms";
-            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 48);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(101, 19);
-            this.metroLabel2.TabIndex = 9;
-            this.metroLabel2.Text = "Delay Anti Flash";
-            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // delayAntiFlash
-            // 
-            this.delayAntiFlash.BackColor = System.Drawing.Color.Transparent;
-            this.delayAntiFlash.Location = new System.Drawing.Point(0, 0);
-            this.delayAntiFlash.Name = "delayAntiFlash";
-            this.delayAntiFlash.Size = new System.Drawing.Size(0, 0);
-            this.delayAntiFlash.TabIndex = 14;
-            // 
-            // antiFlashCheck
-            // 
-            this.antiFlashCheck.AutoSize = true;
-            this.antiFlashCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.antiFlashCheck.Location = new System.Drawing.Point(9, 17);
-            this.antiFlashCheck.Name = "antiFlashCheck";
-            this.antiFlashCheck.Size = new System.Drawing.Size(105, 25);
-            this.antiFlashCheck.TabIndex = 2;
-            this.antiFlashCheck.Text = "Anti Flash";
-            this.antiFlashCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.antiFlashCheck.UseVisualStyleBackColor = true;
-            this.antiFlashCheck.CheckedChanged += new System.EventHandler(this.antiFlashCheck_CheckedChanged);
-            // 
-            // aimTab
-            // 
-            this.aimTab.Controls.Add(this.shootTeamCheck);
-            this.aimTab.Controls.Add(this.hasToBeScopedCheck);
-            this.aimTab.Controls.Add(this.metroLabel1);
-            this.aimTab.Controls.Add(this.metroLabel5);
-            this.aimTab.Controls.Add(this.tiggerbotDelay);
-            this.aimTab.Controls.Add(this.triggerbotCheck);
-            this.aimTab.HorizontalScrollbarBarColor = true;
-            this.aimTab.Location = new System.Drawing.Point(4, 4);
-            this.aimTab.Name = "aimTab";
-            this.aimTab.Size = new System.Drawing.Size(157, 395);
-            this.aimTab.TabIndex = 1;
-            this.aimTab.Text = "Aim";
-            this.aimTab.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.aimTab.VerticalScrollbarBarColor = true;
-            // 
-            // shootTeamCheck
-            // 
-            this.shootTeamCheck.AutoSize = true;
-            this.shootTeamCheck.Location = new System.Drawing.Point(221, 75);
-            this.shootTeamCheck.Name = "shootTeamCheck";
-            this.shootTeamCheck.Size = new System.Drawing.Size(116, 15);
-            this.shootTeamCheck.TabIndex = 11;
-            this.shootTeamCheck.Text = "Shoot teammates";
-            this.shootTeamCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.shootTeamCheck.UseVisualStyleBackColor = true;
-            this.shootTeamCheck.CheckedChanged += new System.EventHandler(this.shootTeamCheck_CheckedChanged);
-            // 
-            // hasToBeScopedCheck
-            // 
-            this.hasToBeScopedCheck.AutoSize = true;
-            this.hasToBeScopedCheck.Checked = true;
-            this.hasToBeScopedCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hasToBeScopedCheck.Location = new System.Drawing.Point(9, 75);
-            this.hasToBeScopedCheck.Name = "hasToBeScopedCheck";
-            this.hasToBeScopedCheck.Size = new System.Drawing.Size(197, 15);
-            this.hasToBeScopedCheck.TabIndex = 10;
-            this.hasToBeScopedCheck.Text = "Triggerbot, snipers need to scope";
-            this.hasToBeScopedCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.hasToBeScopedCheck.UseVisualStyleBackColor = true;
+            this.TriggerbotDelayLabel.AutoSize = true;
+            this.TriggerbotDelayLabel.Location = new System.Drawing.Point(248, 48);
+            this.TriggerbotDelayLabel.Name = "TriggerbotDelayLabel";
+            this.TriggerbotDelayLabel.Size = new System.Drawing.Size(37, 19);
+            this.TriggerbotDelayLabel.Style = MetroFramework.MetroColorStyle.Orange;
+            this.TriggerbotDelayLabel.TabIndex = 5;
+            this.TriggerbotDelayLabel.Text = "0 ms";
+            this.TriggerbotDelayLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 46);
+            this.metroLabel1.Location = new System.Drawing.Point(0, 48);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(106, 19);
-            this.metroLabel1.TabIndex = 6;
-            this.metroLabel1.Text = "Delay Triggerbot";
+            this.metroLabel1.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel1.TabIndex = 4;
+            this.metroLabel1.Text = "Delay";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // metroLabel5
+            // DelayTriggerbotMS
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(348, 46);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(36, 19);
-            this.metroLabel5.TabIndex = 5;
-            this.metroLabel5.Text = "x ms";
-            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.DelayTriggerbotMS.BackColor = System.Drawing.Color.Transparent;
+            this.DelayTriggerbotMS.Location = new System.Drawing.Point(50, 48);
+            this.DelayTriggerbotMS.Maximum = 1000;
+            this.DelayTriggerbotMS.Name = "DelayTriggerbotMS";
+            this.DelayTriggerbotMS.Size = new System.Drawing.Size(192, 23);
+            this.DelayTriggerbotMS.Style = MetroFramework.MetroColorStyle.Orange;
+            this.DelayTriggerbotMS.TabIndex = 3;
+            this.DelayTriggerbotMS.Text = "metroTrackBar1";
+            this.DelayTriggerbotMS.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.DelayTriggerbotMS.Value = 0;
+            this.DelayTriggerbotMS.Scroll += new System.Windows.Forms.ScrollEventHandler(this.DelayTriggerbotMS_Scroll);
             // 
-            // tiggerbotDelay
+            // TriggerbotCheck
             // 
-            this.tiggerbotDelay.BackColor = System.Drawing.Color.Transparent;
-            this.tiggerbotDelay.Location = new System.Drawing.Point(115, 46);
-            this.tiggerbotDelay.Maximum = 1000;
-            this.tiggerbotDelay.Name = "tiggerbotDelay";
-            this.tiggerbotDelay.Size = new System.Drawing.Size(222, 23);
-            this.tiggerbotDelay.TabIndex = 4;
-            this.tiggerbotDelay.Text = "metroTrackBar1";
-            this.tiggerbotDelay.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.tiggerbotDelay.Value = 0;
-            this.tiggerbotDelay.Scroll += new System.Windows.Forms.ScrollEventHandler(this.tiggerbotDelay_Scroll);
+            this.TriggerbotCheck.AutoSize = true;
+            this.TriggerbotCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.TriggerbotCheck.Location = new System.Drawing.Point(3, 13);
+            this.TriggerbotCheck.Name = "TriggerbotCheck";
+            this.TriggerbotCheck.Size = new System.Drawing.Size(110, 25);
+            this.TriggerbotCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.TriggerbotCheck.TabIndex = 2;
+            this.TriggerbotCheck.Text = "Triggerbot";
+            this.TriggerbotCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TriggerbotCheck.UseVisualStyleBackColor = true;
+            this.TriggerbotCheck.CheckedChanged += new System.EventHandler(this.TriggerbotCheck_CheckedChanged);
             // 
-            // triggerbotCheck
+            // metroTabPage2
             // 
-            this.triggerbotCheck.AutoSize = true;
-            this.triggerbotCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.triggerbotCheck.Location = new System.Drawing.Point(9, 17);
-            this.triggerbotCheck.Name = "triggerbotCheck";
-            this.triggerbotCheck.Size = new System.Drawing.Size(110, 25);
-            this.triggerbotCheck.TabIndex = 3;
-            this.triggerbotCheck.Text = "Triggerbot";
-            this.triggerbotCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.triggerbotCheck.UseVisualStyleBackColor = true;
-            this.triggerbotCheck.CheckedChanged += new System.EventHandler(this.triggerbotCheck_CheckedChanged);
-            // 
-            // visualTab
-            // 
-            this.visualTab.Controls.Add(this.metroLabel12);
-            this.visualTab.Controls.Add(this.metroLabel11);
-            this.visualTab.Controls.Add(this.metroLabel10);
-            this.visualTab.Controls.Add(this.metroLabel9);
-            this.visualTab.Controls.Add(this.metroLabel8);
-            this.visualTab.Controls.Add(this.metroLabel6);
-            this.visualTab.Controls.Add(this.blueFriendlyCharmSlider);
-            this.visualTab.Controls.Add(this.greenFriendlyCharmSlider);
-            this.visualTab.Controls.Add(this.redFriendlyCharmSlider);
-            this.visualTab.Controls.Add(this.brightnessCharmSlider);
-            this.visualTab.Controls.Add(this.blueEnemyCharmSlider);
-            this.visualTab.Controls.Add(this.greenEnemyCharmSlider);
-            this.visualTab.Controls.Add(this.redEnemyCharmSlider);
-            this.visualTab.Controls.Add(this.chamsCheck);
-            this.visualTab.Controls.Add(this.radarCheck);
-            this.visualTab.Controls.Add(this.glowCheck);
-            this.visualTab.Controls.Add(this.healthBasedGlowCheck);
-            this.visualTab.Controls.Add(this.onlyEnemyGlow);
-            this.visualTab.HorizontalScrollbarBarColor = true;
-            this.visualTab.Location = new System.Drawing.Point(4, 4);
-            this.visualTab.Name = "visualTab";
-            this.visualTab.Size = new System.Drawing.Size(157, 395);
-            this.visualTab.TabIndex = 2;
-            this.visualTab.Text = "Visual";
-            this.visualTab.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.visualTab.VerticalScrollbarBarColor = true;
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(258, 298);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(68, 19);
-            this.metroLabel12.TabIndex = 33;
-            this.metroLabel12.Text = "Brightness";
-            this.metroLabel12.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(35, 185);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel11.TabIndex = 32;
-            this.metroLabel11.Text = "Enemy Team";
-            this.metroLabel11.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(227, 185);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(71, 19);
-            this.metroLabel10.TabIndex = 31;
-            this.metroLabel10.Text = "Your Team";
-            this.metroLabel10.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage2.Controls.Add(this.metroLabel9);
+            this.metroTabPage2.Controls.Add(this.ChamBrigtness);
+            this.metroTabPage2.Controls.Add(this.ChamFriendlyBlue);
+            this.metroTabPage2.Controls.Add(this.ChamEnemyBlue);
+            this.metroTabPage2.Controls.Add(this.ChamFriendlyGreen);
+            this.metroTabPage2.Controls.Add(this.ChamEnemyGreen);
+            this.metroTabPage2.Controls.Add(this.metroLabel8);
+            this.metroTabPage2.Controls.Add(this.metroLabel7);
+            this.metroTabPage2.Controls.Add(this.metroLabel6);
+            this.metroTabPage2.Controls.Add(this.metroLabel5);
+            this.metroTabPage2.Controls.Add(this.ChamFriendlyRed);
+            this.metroTabPage2.Controls.Add(this.metroLabel3);
+            this.metroTabPage2.Controls.Add(this.ChamEnemyRed);
+            this.metroTabPage2.Controls.Add(this.ChamsCheck);
+            this.metroTabPage2.Controls.Add(this.RadarCheck);
+            this.metroTabPage2.Controls.Add(this.GlowOnlyTeammates);
+            this.metroTabPage2.Controls.Add(this.GlowOnlyEnemy);
+            this.metroTabPage2.Controls.Add(this.GlowHealthbased);
+            this.metroTabPage2.Controls.Add(this.GlowCheck);
+            this.metroTabPage2.HorizontalScrollbarBarColor = true;
+            this.metroTabPage2.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage2.Name = "metroTabPage2";
+            this.metroTabPage2.Size = new System.Drawing.Size(874, 333);
+            this.metroTabPage2.TabIndex = 1;
+            this.metroTabPage2.Text = "Visual";
+            this.metroTabPage2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage2.VerticalScrollbarBarColor = true;
             // 
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(144, 257);
+            this.metroLabel9.Location = new System.Drawing.Point(-4, 279);
             this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(34, 19);
-            this.metroLabel9.TabIndex = 30;
-            this.metroLabel9.Text = "Blue";
+            this.metroLabel9.Size = new System.Drawing.Size(61, 19);
+            this.metroLabel9.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel9.TabIndex = 28;
+            this.metroLabel9.Text = "Brigtness";
             this.metroLabel9.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // ChamBrigtness
+            // 
+            this.ChamBrigtness.BackColor = System.Drawing.Color.Transparent;
+            this.ChamBrigtness.Location = new System.Drawing.Point(63, 279);
+            this.ChamBrigtness.Maximum = 1000;
+            this.ChamBrigtness.Name = "ChamBrigtness";
+            this.ChamBrigtness.Size = new System.Drawing.Size(277, 23);
+            this.ChamBrigtness.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamBrigtness.TabIndex = 27;
+            this.ChamBrigtness.Text = "metroTrackBar5";
+            this.ChamBrigtness.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamBrigtness.Value = 0;
+            // 
+            // ChamFriendlyBlue
+            // 
+            this.ChamFriendlyBlue.BackColor = System.Drawing.Color.Transparent;
+            this.ChamFriendlyBlue.Location = new System.Drawing.Point(205, 250);
+            this.ChamFriendlyBlue.Maximum = 1000;
+            this.ChamFriendlyBlue.Name = "ChamFriendlyBlue";
+            this.ChamFriendlyBlue.Size = new System.Drawing.Size(135, 23);
+            this.ChamFriendlyBlue.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamFriendlyBlue.TabIndex = 26;
+            this.ChamFriendlyBlue.Text = "metroTrackBar5";
+            this.ChamFriendlyBlue.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamFriendlyBlue.Value = 0;
+            // 
+            // ChamEnemyBlue
+            // 
+            this.ChamEnemyBlue.BackColor = System.Drawing.Color.Transparent;
+            this.ChamEnemyBlue.Location = new System.Drawing.Point(3, 251);
+            this.ChamEnemyBlue.Maximum = 1000;
+            this.ChamEnemyBlue.Name = "ChamEnemyBlue";
+            this.ChamEnemyBlue.Size = new System.Drawing.Size(135, 23);
+            this.ChamEnemyBlue.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamEnemyBlue.TabIndex = 25;
+            this.ChamEnemyBlue.Text = "metroTrackBar6";
+            this.ChamEnemyBlue.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamEnemyBlue.Value = 0;
+            // 
+            // ChamFriendlyGreen
+            // 
+            this.ChamFriendlyGreen.BackColor = System.Drawing.Color.Transparent;
+            this.ChamFriendlyGreen.Location = new System.Drawing.Point(205, 220);
+            this.ChamFriendlyGreen.Maximum = 1000;
+            this.ChamFriendlyGreen.Name = "ChamFriendlyGreen";
+            this.ChamFriendlyGreen.Size = new System.Drawing.Size(135, 23);
+            this.ChamFriendlyGreen.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamFriendlyGreen.TabIndex = 24;
+            this.ChamFriendlyGreen.Text = "metroTrackBar4";
+            this.ChamFriendlyGreen.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamFriendlyGreen.Value = 0;
+            // 
+            // ChamEnemyGreen
+            // 
+            this.ChamEnemyGreen.BackColor = System.Drawing.Color.Transparent;
+            this.ChamEnemyGreen.Location = new System.Drawing.Point(3, 221);
+            this.ChamEnemyGreen.Maximum = 1000;
+            this.ChamEnemyGreen.Name = "ChamEnemyGreen";
+            this.ChamEnemyGreen.Size = new System.Drawing.Size(135, 23);
+            this.ChamEnemyGreen.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamEnemyGreen.TabIndex = 23;
+            this.ChamEnemyGreen.Text = "metroTrackBar3";
+            this.ChamEnemyGreen.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamEnemyGreen.Value = 0;
             // 
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(141, 228);
+            this.metroLabel8.Location = new System.Drawing.Point(151, 220);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(44, 19);
-            this.metroLabel8.TabIndex = 29;
+            this.metroLabel8.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel8.TabIndex = 22;
             this.metroLabel8.Text = "Green";
             this.metroLabel8.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(151, 251);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(34, 19);
+            this.metroLabel7.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel7.TabIndex = 21;
+            this.metroLabel7.Text = "Blue";
+            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(144, 199);
+            this.metroLabel6.Location = new System.Drawing.Point(31, 170);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(32, 19);
-            this.metroLabel6.TabIndex = 22;
-            this.metroLabel6.Text = "Red";
+            this.metroLabel6.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel6.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel6.TabIndex = 20;
+            this.metroLabel6.Text = "Enemy Team";
             this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // blueFriendlyCharmSlider
+            // metroLabel5
             // 
-            this.blueFriendlyCharmSlider.BackColor = System.Drawing.Color.Transparent;
-            this.blueFriendlyCharmSlider.Location = new System.Drawing.Point(191, 257);
-            this.blueFriendlyCharmSlider.Maximum = 1000;
-            this.blueFriendlyCharmSlider.Name = "blueFriendlyCharmSlider";
-            this.blueFriendlyCharmSlider.Size = new System.Drawing.Size(135, 23);
-            this.blueFriendlyCharmSlider.TabIndex = 28;
-            this.blueFriendlyCharmSlider.Text = "metroTrackBar5";
-            this.blueFriendlyCharmSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.blueFriendlyCharmSlider.Value = 0;
-            this.blueFriendlyCharmSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.blueFriendlyCharmSlider_Scroll);
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(242, 170);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(71, 19);
+            this.metroLabel5.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel5.TabIndex = 19;
+            this.metroLabel5.Text = "Your Team";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // greenFriendlyCharmSlider
+            // ChamFriendlyRed
             // 
-            this.greenFriendlyCharmSlider.BackColor = System.Drawing.Color.Transparent;
-            this.greenFriendlyCharmSlider.Location = new System.Drawing.Point(191, 228);
-            this.greenFriendlyCharmSlider.Maximum = 1000;
-            this.greenFriendlyCharmSlider.Name = "greenFriendlyCharmSlider";
-            this.greenFriendlyCharmSlider.Size = new System.Drawing.Size(135, 23);
-            this.greenFriendlyCharmSlider.TabIndex = 27;
-            this.greenFriendlyCharmSlider.Text = "metroTrackBar6";
-            this.greenFriendlyCharmSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.greenFriendlyCharmSlider.Value = 0;
-            this.greenFriendlyCharmSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.greenFriendlyCharmSlider_Scroll);
+            this.ChamFriendlyRed.BackColor = System.Drawing.Color.Transparent;
+            this.ChamFriendlyRed.Location = new System.Drawing.Point(205, 192);
+            this.ChamFriendlyRed.Maximum = 1000;
+            this.ChamFriendlyRed.Name = "ChamFriendlyRed";
+            this.ChamFriendlyRed.Size = new System.Drawing.Size(135, 23);
+            this.ChamFriendlyRed.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamFriendlyRed.TabIndex = 18;
+            this.ChamFriendlyRed.Text = "metroTrackBar2";
+            this.ChamFriendlyRed.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamFriendlyRed.Value = 0;
             // 
-            // redFriendlyCharmSlider
+            // metroLabel3
             // 
-            this.redFriendlyCharmSlider.BackColor = System.Drawing.Color.Transparent;
-            this.redFriendlyCharmSlider.Location = new System.Drawing.Point(191, 199);
-            this.redFriendlyCharmSlider.Maximum = 1000;
-            this.redFriendlyCharmSlider.Name = "redFriendlyCharmSlider";
-            this.redFriendlyCharmSlider.Size = new System.Drawing.Size(135, 23);
-            this.redFriendlyCharmSlider.TabIndex = 26;
-            this.redFriendlyCharmSlider.Text = "metroTrackBar7";
-            this.redFriendlyCharmSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.redFriendlyCharmSlider.Value = 0;
-            this.redFriendlyCharmSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.redFriendlyCharmSlider_Scroll);
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(151, 192);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(32, 19);
+            this.metroLabel3.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel3.TabIndex = 8;
+            this.metroLabel3.Text = "Red";
+            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // brightnessCharmSlider
+            // ChamEnemyRed
             // 
-            this.brightnessCharmSlider.BackColor = System.Drawing.Color.Transparent;
-            this.brightnessCharmSlider.Location = new System.Drawing.Point(3, 298);
-            this.brightnessCharmSlider.Maximum = 1000;
-            this.brightnessCharmSlider.Name = "brightnessCharmSlider";
-            this.brightnessCharmSlider.Size = new System.Drawing.Size(249, 23);
-            this.brightnessCharmSlider.TabIndex = 25;
-            this.brightnessCharmSlider.Text = "metroTrackBar4";
-            this.brightnessCharmSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.brightnessCharmSlider.Value = 0;
-            this.brightnessCharmSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.brightnessCharmSlider_Scroll);
+            this.ChamEnemyRed.BackColor = System.Drawing.Color.Transparent;
+            this.ChamEnemyRed.Location = new System.Drawing.Point(3, 192);
+            this.ChamEnemyRed.Maximum = 1000;
+            this.ChamEnemyRed.Name = "ChamEnemyRed";
+            this.ChamEnemyRed.Size = new System.Drawing.Size(135, 23);
+            this.ChamEnemyRed.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamEnemyRed.TabIndex = 17;
+            this.ChamEnemyRed.Text = "metroTrackBar1";
+            this.ChamEnemyRed.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamEnemyRed.Value = 0;
             // 
-            // blueEnemyCharmSlider
+            // ChamsCheck
             // 
-            this.blueEnemyCharmSlider.BackColor = System.Drawing.Color.Transparent;
-            this.blueEnemyCharmSlider.Location = new System.Drawing.Point(3, 257);
-            this.blueEnemyCharmSlider.Maximum = 1000;
-            this.blueEnemyCharmSlider.Name = "blueEnemyCharmSlider";
-            this.blueEnemyCharmSlider.Size = new System.Drawing.Size(135, 23);
-            this.blueEnemyCharmSlider.TabIndex = 24;
-            this.blueEnemyCharmSlider.Text = "metroTrackBar3";
-            this.blueEnemyCharmSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.blueEnemyCharmSlider.Value = 0;
-            this.blueEnemyCharmSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.blueEnemyCharmSlider_Scroll);
+            this.ChamsCheck.AutoSize = true;
+            this.ChamsCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.ChamsCheck.Location = new System.Drawing.Point(3, 139);
+            this.ChamsCheck.Name = "ChamsCheck";
+            this.ChamsCheck.Size = new System.Drawing.Size(82, 25);
+            this.ChamsCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ChamsCheck.TabIndex = 12;
+            this.ChamsCheck.Text = "Chams";
+            this.ChamsCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ChamsCheck.UseVisualStyleBackColor = true;
+            this.ChamsCheck.CheckedChanged += new System.EventHandler(this.ChamsCheck_CheckedChanged);
             // 
-            // greenEnemyCharmSlider
+            // RadarCheck
             // 
-            this.greenEnemyCharmSlider.BackColor = System.Drawing.Color.Transparent;
-            this.greenEnemyCharmSlider.Location = new System.Drawing.Point(3, 228);
-            this.greenEnemyCharmSlider.Maximum = 1000;
-            this.greenEnemyCharmSlider.Name = "greenEnemyCharmSlider";
-            this.greenEnemyCharmSlider.Size = new System.Drawing.Size(135, 23);
-            this.greenEnemyCharmSlider.TabIndex = 23;
-            this.greenEnemyCharmSlider.Text = "metroTrackBar2";
-            this.greenEnemyCharmSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.greenEnemyCharmSlider.Value = 0;
-            this.greenEnemyCharmSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.greenEnemyCharmSlider_Scroll);
+            this.RadarCheck.AutoSize = true;
+            this.RadarCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.RadarCheck.Location = new System.Drawing.Point(175, 12);
+            this.RadarCheck.Name = "RadarCheck";
+            this.RadarCheck.Size = new System.Drawing.Size(74, 25);
+            this.RadarCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.RadarCheck.TabIndex = 11;
+            this.RadarCheck.Text = "Radar";
+            this.RadarCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.RadarCheck.UseVisualStyleBackColor = true;
+            this.RadarCheck.CheckedChanged += new System.EventHandler(this.RadarCheck_CheckedChanged);
             // 
-            // redEnemyCharmSlider
+            // GlowOnlyTeammates
             // 
-            this.redEnemyCharmSlider.BackColor = System.Drawing.Color.Transparent;
-            this.redEnemyCharmSlider.Location = new System.Drawing.Point(3, 199);
-            this.redEnemyCharmSlider.Maximum = 1000;
-            this.redEnemyCharmSlider.Name = "redEnemyCharmSlider";
-            this.redEnemyCharmSlider.Size = new System.Drawing.Size(135, 23);
-            this.redEnemyCharmSlider.TabIndex = 22;
-            this.redEnemyCharmSlider.Text = "metroTrackBar1";
-            this.redEnemyCharmSlider.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.redEnemyCharmSlider.Value = 0;
-            this.redEnemyCharmSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.redEnemyCharmSlider_Scroll);
+            this.GlowOnlyTeammates.AutoSize = true;
+            this.GlowOnlyTeammates.Location = new System.Drawing.Point(3, 85);
+            this.GlowOnlyTeammates.Name = "GlowOnlyTeammates";
+            this.GlowOnlyTeammates.Size = new System.Drawing.Size(111, 15);
+            this.GlowOnlyTeammates.Style = MetroFramework.MetroColorStyle.Orange;
+            this.GlowOnlyTeammates.TabIndex = 10;
+            this.GlowOnlyTeammates.Text = "Only Teammates";
+            this.GlowOnlyTeammates.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.GlowOnlyTeammates.UseVisualStyleBackColor = true;
             // 
-            // chamsCheck
+            // GlowOnlyEnemy
             // 
-            this.chamsCheck.AutoSize = true;
-            this.chamsCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.chamsCheck.Location = new System.Drawing.Point(3, 157);
-            this.chamsCheck.Name = "chamsCheck";
-            this.chamsCheck.Size = new System.Drawing.Size(82, 25);
-            this.chamsCheck.TabIndex = 11;
-            this.chamsCheck.Text = "Chams";
-            this.chamsCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.chamsCheck.UseVisualStyleBackColor = true;
-            this.chamsCheck.CheckedChanged += new System.EventHandler(this.chamsCheck_CheckedChanged);
+            this.GlowOnlyEnemy.AutoSize = true;
+            this.GlowOnlyEnemy.Location = new System.Drawing.Point(3, 64);
+            this.GlowOnlyEnemy.Name = "GlowOnlyEnemy";
+            this.GlowOnlyEnemy.Size = new System.Drawing.Size(95, 15);
+            this.GlowOnlyEnemy.Style = MetroFramework.MetroColorStyle.Orange;
+            this.GlowOnlyEnemy.TabIndex = 9;
+            this.GlowOnlyEnemy.Text = "Only Enemies";
+            this.GlowOnlyEnemy.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.GlowOnlyEnemy.UseVisualStyleBackColor = true;
             // 
-            // radarCheck
+            // GlowHealthbased
             // 
-            this.radarCheck.AutoSize = true;
-            this.radarCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.radarCheck.Location = new System.Drawing.Point(3, 109);
-            this.radarCheck.Name = "radarCheck";
-            this.radarCheck.Size = new System.Drawing.Size(74, 25);
-            this.radarCheck.TabIndex = 10;
-            this.radarCheck.Text = "Radar";
-            this.radarCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.radarCheck.UseVisualStyleBackColor = true;
-            this.radarCheck.CheckedChanged += new System.EventHandler(this.radarCheck_CheckedChanged);
+            this.GlowHealthbased.AutoSize = true;
+            this.GlowHealthbased.Location = new System.Drawing.Point(3, 43);
+            this.GlowHealthbased.Name = "GlowHealthbased";
+            this.GlowHealthbased.Size = new System.Drawing.Size(92, 15);
+            this.GlowHealthbased.Style = MetroFramework.MetroColorStyle.Orange;
+            this.GlowHealthbased.TabIndex = 8;
+            this.GlowHealthbased.Text = "Health based";
+            this.GlowHealthbased.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.GlowHealthbased.UseVisualStyleBackColor = true;
             // 
-            // glowCheck
+            // GlowCheck
             // 
-            this.glowCheck.AutoSize = true;
-            this.glowCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.glowCheck.Location = new System.Drawing.Point(3, 17);
-            this.glowCheck.Name = "glowCheck";
-            this.glowCheck.Size = new System.Drawing.Size(68, 25);
-            this.glowCheck.TabIndex = 7;
-            this.glowCheck.Text = "Glow";
-            this.glowCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.glowCheck.UseVisualStyleBackColor = true;
-            this.glowCheck.CheckedChanged += new System.EventHandler(this.glowCheck_CheckedChanged);
+            this.GlowCheck.AutoSize = true;
+            this.GlowCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.GlowCheck.Location = new System.Drawing.Point(3, 12);
+            this.GlowCheck.Name = "GlowCheck";
+            this.GlowCheck.Size = new System.Drawing.Size(68, 25);
+            this.GlowCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.GlowCheck.TabIndex = 8;
+            this.GlowCheck.Text = "Glow";
+            this.GlowCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.GlowCheck.UseVisualStyleBackColor = true;
+            this.GlowCheck.CheckedChanged += new System.EventHandler(this.GlowCheck_CheckedChanged);
             // 
-            // healthBasedGlowCheck
+            // metroTabPage1
             // 
-            this.healthBasedGlowCheck.AutoSize = true;
-            this.healthBasedGlowCheck.Location = new System.Drawing.Point(3, 48);
-            this.healthBasedGlowCheck.Name = "healthBasedGlowCheck";
-            this.healthBasedGlowCheck.Size = new System.Drawing.Size(151, 15);
-            this.healthBasedGlowCheck.TabIndex = 9;
-            this.healthBasedGlowCheck.Text = "Health based glow color";
-            this.healthBasedGlowCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.healthBasedGlowCheck.UseVisualStyleBackColor = true;
-            this.healthBasedGlowCheck.CheckedChanged += new System.EventHandler(this.healthBasedGlowCheck_CheckedChanged);
+            this.metroTabPage1.Controls.Add(this.SkinchangerCheck);
+            this.metroTabPage1.Controls.Add(this.ThirdpersonCheck);
+            this.metroTabPage1.Controls.Add(this.BunnyhopCheck);
+            this.metroTabPage1.Controls.Add(this.FovLabel);
+            this.metroTabPage1.Controls.Add(this.Fov);
+            this.metroTabPage1.Controls.Add(this.FovAmount);
+            this.metroTabPage1.Controls.Add(this.FovCheck);
+            this.metroTabPage1.Controls.Add(this.AntiflashDelayLabel);
+            this.metroTabPage1.Controls.Add(this.metroLabel2);
+            this.metroTabPage1.Controls.Add(this.AntiflashDelay);
+            this.metroTabPage1.Controls.Add(this.AntiflashCheck);
+            this.metroTabPage1.HorizontalScrollbarBarColor = true;
+            this.metroTabPage1.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage1.Name = "metroTabPage1";
+            this.metroTabPage1.Size = new System.Drawing.Size(874, 333);
+            this.metroTabPage1.TabIndex = 2;
+            this.metroTabPage1.Text = "Misc";
+            this.metroTabPage1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage1.VerticalScrollbarBarColor = true;
             // 
-            // onlyEnemyGlow
+            // SkinchangerCheck
             // 
-            this.onlyEnemyGlow.AutoSize = true;
-            this.onlyEnemyGlow.Location = new System.Drawing.Point(3, 69);
-            this.onlyEnemyGlow.Name = "onlyEnemyGlow";
-            this.onlyEnemyGlow.Size = new System.Drawing.Size(116, 15);
-            this.onlyEnemyGlow.TabIndex = 8;
-            this.onlyEnemyGlow.Text = "Only enemy glow";
-            this.onlyEnemyGlow.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.onlyEnemyGlow.UseVisualStyleBackColor = true;
-            this.onlyEnemyGlow.CheckedChanged += new System.EventHandler(this.onlyEnemyGlow_CheckedChanged);
+            this.SkinchangerCheck.AutoSize = true;
+            this.SkinchangerCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.SkinchangerCheck.Location = new System.Drawing.Point(3, 188);
+            this.SkinchangerCheck.Name = "SkinchangerCheck";
+            this.SkinchangerCheck.Size = new System.Drawing.Size(132, 25);
+            this.SkinchangerCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.SkinchangerCheck.TabIndex = 16;
+            this.SkinchangerCheck.Text = "Skin Changer";
+            this.SkinchangerCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.SkinchangerCheck.UseVisualStyleBackColor = true;
+            this.SkinchangerCheck.CheckedChanged += new System.EventHandler(this.SkinchangerCheck_CheckedChanged);
             // 
-            // skinChangerTab
+            // ThirdpersonCheck
             // 
-            this.skinChangerTab.Controls.Add(this.applySkinUpdate);
-            this.skinChangerTab.Controls.Add(this.skinID);
-            this.skinChangerTab.Controls.Add(this.weaponName);
-            this.skinChangerTab.HorizontalScrollbarBarColor = true;
-            this.skinChangerTab.Location = new System.Drawing.Point(4, 4);
-            this.skinChangerTab.Name = "skinChangerTab";
-            this.skinChangerTab.Size = new System.Drawing.Size(429, 395);
-            this.skinChangerTab.TabIndex = 4;
-            this.skinChangerTab.Text = "Skin Changer";
-            this.skinChangerTab.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.skinChangerTab.VerticalScrollbarBarColor = true;
+            this.ThirdpersonCheck.AutoSize = true;
+            this.ThirdpersonCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.ThirdpersonCheck.Location = new System.Drawing.Point(3, 219);
+            this.ThirdpersonCheck.Name = "ThirdpersonCheck";
+            this.ThirdpersonCheck.Size = new System.Drawing.Size(123, 25);
+            this.ThirdpersonCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ThirdpersonCheck.TabIndex = 15;
+            this.ThirdpersonCheck.Text = "Thirdperson";
+            this.ThirdpersonCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ThirdpersonCheck.UseVisualStyleBackColor = true;
+            this.ThirdpersonCheck.CheckedChanged += new System.EventHandler(this.ThirdpersonCheck_CheckedChanged);
             // 
-            // applySkinUpdate
+            // BunnyhopCheck
             // 
-            this.applySkinUpdate.Location = new System.Drawing.Point(9, 56);
-            this.applySkinUpdate.Name = "applySkinUpdate";
-            this.applySkinUpdate.Size = new System.Drawing.Size(89, 29);
-            this.applySkinUpdate.TabIndex = 4;
-            this.applySkinUpdate.Text = "Apply";
-            this.applySkinUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.applySkinUpdate.Click += new System.EventHandler(this.applySkinUpdate_Click);
+            this.BunnyhopCheck.AutoSize = true;
+            this.BunnyhopCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.BunnyhopCheck.Location = new System.Drawing.Point(3, 157);
+            this.BunnyhopCheck.Name = "BunnyhopCheck";
+            this.BunnyhopCheck.Size = new System.Drawing.Size(109, 25);
+            this.BunnyhopCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.BunnyhopCheck.TabIndex = 14;
+            this.BunnyhopCheck.Text = "Bunnyhop";
+            this.BunnyhopCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BunnyhopCheck.UseVisualStyleBackColor = true;
+            this.BunnyhopCheck.CheckedChanged += new System.EventHandler(this.BunnyhopCheck_CheckedChanged);
             // 
-            // skinID
+            // FovLabel
             // 
-            this.skinID.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.skinID.Location = new System.Drawing.Point(182, 20);
-            this.skinID.Name = "skinID";
-            this.skinID.Size = new System.Drawing.Size(167, 29);
-            this.skinID.TabIndex = 3;
-            this.skinID.Text = "SKIN ID";
-            this.skinID.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FovLabel.AutoSize = true;
+            this.FovLabel.Location = new System.Drawing.Point(241, 115);
+            this.FovLabel.Name = "FovLabel";
+            this.FovLabel.Size = new System.Drawing.Size(16, 19);
+            this.FovLabel.Style = MetroFramework.MetroColorStyle.Orange;
+            this.FovLabel.TabIndex = 13;
+            this.FovLabel.Text = "0";
+            this.FovLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // weaponName
+            // Fov
             // 
-            this.weaponName.FormattingEnabled = true;
-            this.weaponName.ItemHeight = 23;
-            this.weaponName.Items.AddRange(new object[] {
-            "P2000",
-            "USP-S",
-            "Glock-18",
-            "P250",
-            "Five-SeveN",
-            "Tec-9",
-            "CZ75-Auto",
-            "Dual Berettas",
-            "Desert Eagle",
-            "R8 Revolver",
-            "MP9",
-            "MAC-10",
-            "PP-Bizon",
-            "MP7",
-            "UMP-45",
-            "P90",
-            "MP5-SD",
-            "FAMAS",
-            "Galil AR",
-            "M4A4",
-            "M4A1-S",
-            "AK-47",
-            "AUG",
-            "SG 553",
-            "SSG 08",
-            "AWP",
-            "SSCAR-20",
-            "G3SG1",
-            "Nova",
-            "XM1014",
-            "MAG-7",
-            "Sawed-Off",
-            "M249",
-            "Negev"});
-            this.weaponName.Location = new System.Drawing.Point(9, 20);
-            this.weaponName.Name = "weaponName";
-            this.weaponName.Size = new System.Drawing.Size(167, 29);
-            this.weaponName.TabIndex = 2;
-            this.weaponName.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Fov.AutoSize = true;
+            this.Fov.Location = new System.Drawing.Point(-4, 115);
+            this.Fov.Name = "Fov";
+            this.Fov.Size = new System.Drawing.Size(30, 19);
+            this.Fov.Style = MetroFramework.MetroColorStyle.Orange;
+            this.Fov.TabIndex = 10;
+            this.Fov.Text = "Fov";
+            this.Fov.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // panel1
+            // FovAmount
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-21, -5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 525);
-            this.panel1.TabIndex = 1;
+            this.FovAmount.BackColor = System.Drawing.Color.Transparent;
+            this.FovAmount.Location = new System.Drawing.Point(43, 115);
+            this.FovAmount.Maximum = 200;
+            this.FovAmount.Name = "FovAmount";
+            this.FovAmount.Size = new System.Drawing.Size(192, 23);
+            this.FovAmount.Style = MetroFramework.MetroColorStyle.Orange;
+            this.FovAmount.TabIndex = 11;
+            this.FovAmount.Text = "metroTrackBar1";
+            this.FovAmount.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FovAmount.Value = 0;
             // 
-            // label5
+            // FovCheck
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Unispace", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(35, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 35);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Eclipse";
+            this.FovCheck.AutoSize = true;
+            this.FovCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.FovCheck.Location = new System.Drawing.Point(3, 84);
+            this.FovCheck.Name = "FovCheck";
+            this.FovCheck.Size = new System.Drawing.Size(57, 25);
+            this.FovCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.FovCheck.TabIndex = 12;
+            this.FovCheck.Text = "Fov";
+            this.FovCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FovCheck.UseVisualStyleBackColor = true;
+            this.FovCheck.CheckedChanged += new System.EventHandler(this.FovCheck_CheckedChanged);
             // 
-            // label4
+            // AntiflashDelayLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(149, 379);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Skin Changer";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.AntiflashDelayLabel.AutoSize = true;
+            this.AntiflashDelayLabel.Location = new System.Drawing.Point(241, 46);
+            this.AntiflashDelayLabel.Name = "AntiflashDelayLabel";
+            this.AntiflashDelayLabel.Size = new System.Drawing.Size(37, 19);
+            this.AntiflashDelayLabel.Style = MetroFramework.MetroColorStyle.Orange;
+            this.AntiflashDelayLabel.TabIndex = 9;
+            this.AntiflashDelayLabel.Text = "0 ms";
+            this.AntiflashDelayLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // label3
+            // metroLabel2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(152, 295);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Misc";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(-4, 46);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroLabel2.TabIndex = 8;
+            this.metroLabel2.Text = "Delay";
+            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // label2
+            // AntiflashDelay
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(152, 199);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Visuals";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.AntiflashDelay.BackColor = System.Drawing.Color.Transparent;
+            this.AntiflashDelay.Location = new System.Drawing.Point(43, 46);
+            this.AntiflashDelay.Maximum = 5000;
+            this.AntiflashDelay.Name = "AntiflashDelay";
+            this.AntiflashDelay.Size = new System.Drawing.Size(192, 23);
+            this.AntiflashDelay.Style = MetroFramework.MetroColorStyle.Orange;
+            this.AntiflashDelay.TabIndex = 8;
+            this.AntiflashDelay.Text = "metroTrackBar1";
+            this.AntiflashDelay.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.AntiflashDelay.Value = 0;
+            this.AntiflashDelay.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AntiflashDelay_Scroll);
             // 
-            // label1
+            // AntiflashCheck
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(152, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Aim";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.AntiflashCheck.AutoSize = true;
+            this.AntiflashCheck.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.AntiflashCheck.Location = new System.Drawing.Point(3, 15);
+            this.AntiflashCheck.Name = "AntiflashCheck";
+            this.AntiflashCheck.Size = new System.Drawing.Size(102, 25);
+            this.AntiflashCheck.Style = MetroFramework.MetroColorStyle.Orange;
+            this.AntiflashCheck.TabIndex = 8;
+            this.AntiflashCheck.Text = "Anti flash";
+            this.AntiflashCheck.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.AntiflashCheck.UseVisualStyleBackColor = true;
+            this.AntiflashCheck.CheckedChanged += new System.EventHandler(this.AntiflashCheck_CheckedChanged);
             // 
-            // pictureBox4
+            // metroTabPage3
             // 
-            this.pictureBox4.Image = global::Eclipse.Properties.Resources.sid_view;
-            this.pictureBox4.ImageLocation = "";
-            this.pictureBox4.Location = new System.Drawing.Point(26, 174);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(120, 66);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Eclipse.Properties.Resources.rifle;
-            this.pictureBox3.ImageLocation = "";
-            this.pictureBox3.Location = new System.Drawing.Point(26, 356);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(120, 66);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Eclipse.Properties.Resources.wheel;
-            this.pictureBox2.ImageLocation = "";
-            this.pictureBox2.Location = new System.Drawing.Point(26, 268);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(120, 66);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Eclipse.Properties.Resources.headshot;
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(26, 76);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.metroTabPage3.HorizontalScrollbarBarColor = true;
+            this.metroTabPage3.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage3.Name = "metroTabPage3";
+            this.metroTabPage3.Size = new System.Drawing.Size(874, 333);
+            this.metroTabPage3.TabIndex = 3;
+            this.metroTabPage3.Text = "Skin Changer";
+            this.metroTabPage3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage3.VerticalScrollbarBarColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 450);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.CheatTabs);
-            this.ForeColor = System.Drawing.Color.Black;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ClientSize = new System.Drawing.Size(914, 486);
+            this.Controls.Add(this.CheatControl);
             this.Name = "Form1";
+            this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "Eclipse";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.CheatTabs.ResumeLayout(false);
-            this.miscTab.ResumeLayout(false);
-            this.miscTab.PerformLayout();
-            this.aimTab.ResumeLayout(false);
-            this.aimTab.PerformLayout();
-            this.visualTab.ResumeLayout(false);
-            this.visualTab.PerformLayout();
-            this.skinChangerTab.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.CheatControl.ResumeLayout(false);
+            this.Aim.ResumeLayout(false);
+            this.Aim.PerformLayout();
+            this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage2.PerformLayout();
+            this.metroTabPage1.ResumeLayout(false);
+            this.metroTabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroTabControl CheatTabs;
-        private MetroFramework.Controls.MetroTabPage miscTab;
-        private MetroFramework.Controls.MetroTabPage aimTab;
-        private MetroFramework.Controls.MetroTabPage visualTab;
-        private MetroFramework.Controls.MetroCheckBox antiFlashCheck;
-        private MetroFramework.Controls.MetroTabPage skinChangerTab;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTrackBar delayAntiFlash;
+        private MetroFramework.Controls.MetroTabControl CheatControl;
+        private MetroFramework.Controls.MetroTabPage Aim;
+        private MetroFramework.Controls.MetroTabPage metroTabPage2;
+        private MetroFramework.Controls.MetroLabel TriggerbotDelayLabel;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroTrackBar tiggerbotDelay;
-        private MetroFramework.Controls.MetroCheckBox glowCheck;
-        private MetroFramework.Controls.MetroCheckBox healthBasedGlowCheck;
-        private MetroFramework.Controls.MetroCheckBox onlyEnemyGlow;
-        private MetroFramework.Controls.MetroCheckBox triggerbotCheck;
-        private MetroFramework.Controls.MetroComboBox weaponName;
-        private MetroFramework.Controls.MetroButton applySkinUpdate;
-        private MetroFramework.Controls.MetroTextBox skinID;
-        private MetroFramework.Controls.MetroCheckBox hasToBeScopedCheck;
-        private MetroFramework.Controls.MetroCheckBox thirdPersonCheck;
-        private MetroFramework.Controls.MetroCheckBox bunnyCheck;
-        private MetroFramework.Controls.MetroCheckBox skinChangerCheck;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroTrackBar antiFlashScroll;
-        private MetroFramework.Controls.MetroCheckBox radarCheck;
-        private MetroFramework.Controls.MetroTrackBar fovSlider;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroCheckBox fovCheck;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroCheckBox shootTeamCheck;
-        private MetroFramework.Controls.MetroCheckBox chamsCheck;
-        private MetroFramework.Controls.MetroLabel metroLabel12;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroLabel metroLabel10;
+        public MetroFramework.Controls.MetroTrackBar DelayTriggerbotMS;
+        public MetroFramework.Controls.MetroCheckBox TriggerbotShootTeammates;
+        public MetroFramework.Controls.MetroCheckBox TriggerbotScopebefore;
+        public MetroFramework.Controls.MetroCheckBox TriggerbotCheck;
         private MetroFramework.Controls.MetroLabel metroLabel9;
+        public MetroFramework.Controls.MetroTrackBar ChamBrigtness;
+        public MetroFramework.Controls.MetroTrackBar ChamFriendlyBlue;
+        public MetroFramework.Controls.MetroTrackBar ChamEnemyBlue;
+        public MetroFramework.Controls.MetroTrackBar ChamFriendlyGreen;
+        public MetroFramework.Controls.MetroTrackBar ChamEnemyGreen;
         private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroTrackBar blueFriendlyCharmSlider;
-        private MetroFramework.Controls.MetroTrackBar greenFriendlyCharmSlider;
-        private MetroFramework.Controls.MetroTrackBar redFriendlyCharmSlider;
-        private MetroFramework.Controls.MetroTrackBar brightnessCharmSlider;
-        private MetroFramework.Controls.MetroTrackBar blueEnemyCharmSlider;
-        private MetroFramework.Controls.MetroTrackBar greenEnemyCharmSlider;
-        private MetroFramework.Controls.MetroTrackBar redEnemyCharmSlider;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        public MetroFramework.Controls.MetroTrackBar ChamFriendlyRed;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        public MetroFramework.Controls.MetroTrackBar ChamEnemyRed;
+        public MetroFramework.Controls.MetroCheckBox ChamsCheck;
+        public MetroFramework.Controls.MetroCheckBox RadarCheck;
+        public MetroFramework.Controls.MetroCheckBox GlowOnlyTeammates;
+        public MetroFramework.Controls.MetroCheckBox GlowOnlyEnemy;
+        public MetroFramework.Controls.MetroCheckBox GlowHealthbased;
+        public MetroFramework.Controls.MetroCheckBox GlowCheck;
+        private MetroFramework.Controls.MetroTabPage metroTabPage1;
+        public MetroFramework.Controls.MetroCheckBox SkinchangerCheck;
+        public MetroFramework.Controls.MetroCheckBox ThirdpersonCheck;
+        public MetroFramework.Controls.MetroCheckBox BunnyhopCheck;
+        private MetroFramework.Controls.MetroLabel FovLabel;
+        private MetroFramework.Controls.MetroLabel Fov;
+        public MetroFramework.Controls.MetroTrackBar FovAmount;
+        public MetroFramework.Controls.MetroCheckBox FovCheck;
+        private MetroFramework.Controls.MetroLabel AntiflashDelayLabel;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        public MetroFramework.Controls.MetroTrackBar AntiflashDelay;
+        public MetroFramework.Controls.MetroCheckBox AntiflashCheck;
+        private MetroFramework.Controls.MetroTabPage metroTabPage3;
     }
 }
 

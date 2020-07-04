@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Eclipse
 {
-     public class Memory
+    public class Memory
     {
         [DllImport("kernel32.dll")]
         private static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
@@ -70,25 +70,25 @@ namespace Eclipse
             {
                 foreach (ProcessModule module in process.Modules)
                 {
-                    if (module.ModuleName == "client_panorama.dll")
+                    if (module.ModuleName == Config.Client_module_name)
                     {
                         Client = (Int32)module.BaseAddress;
                         ClientSize = (Int32)module.ModuleMemorySize;
                     }
-                    else if (module.ModuleName == "engine.dll")
+                    else if (module.ModuleName == Config.Engine_module_name)
                     {
                         Engine = (Int32)module.BaseAddress;
                         EngineSize = (Int32)module.ModuleMemorySize;
                     }
-                   
+
                 }
-                Debug.WriteLine(Client + "\n" + Engine);
+                Debug.WriteLine("Client: " + Client + "\n" + "Engine: " + Engine);
                 if ((IntPtr)Client == IntPtr.Zero || (IntPtr)Engine == IntPtr.Zero)
                 {
                     return false;
                 }
 
-                
+
                 return true;
             }
             catch
@@ -124,7 +124,7 @@ namespace Eclipse
             UInt32 nBytesRead = UInt32.MinValue;
             WriteProcessMemory(pHandle, (IntPtr)address, buffer, (IntPtr)length, ref nBytesRead);
 
-           
+
         }
 
         public static T GetStructure<T>(byte[] bytes)

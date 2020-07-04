@@ -2,179 +2,110 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Eclipse.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
+    <Setting Name="Killstreaknumber" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1337</Value>
+    </Setting>
+    <Setting Name="DESERTEAGLE_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
+    </Setting>
+    <Setting Name="DUALBERETTAS_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
+    </Setting>
+    <Setting Name="FIVESEVEN_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
+    </Setting>
+    <Setting Name="Glock18_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
+    </Setting>
     <Setting Name="AK47_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">675</Value>
+      <Value Profile="(Default)">344</Value>
     </Setting>
     <Setting Name="AUG_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">455</Value>
+      <Value Profile="(Default)">344</Value>
     </Setting>
     <Setting Name="AWP_SkinID" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">344</Value>
     </Setting>
     <Setting Name="FAMAS_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">260</Value>
-    </Setting>
-    <Setting Name="GALILAR_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">478</Value>
-    </Setting>
-    <Setting Name="M4A1S_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">430</Value>
-    </Setting>
-    <Setting Name="M4A4_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">309</Value>
-    </Setting>
-    <Setting Name="SCAR20_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">391</Value>
-    </Setting>
-    <Setting Name="SG553_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">487</Value>
-    </Setting>
-    <Setting Name="SSG08_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">222</Value>
+      <Value Profile="(Default)">344</Value>
     </Setting>
     <Setting Name="G3SG1_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">487</Value>
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="CZ75Auto_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">476</Value>
-    </Setting>
-    <Setting Name="Glock18_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">38</Value>
-    </Setting>
-    <Setting Name="USPS_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">313</Value>
-    </Setting>
-    <Setting Name="P2000_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">389</Value>
-    </Setting>
-    <Setting Name="P250_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">388</Value>
-    </Setting>
-    <Setting Name="DUALBERETTAS_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">261</Value>
-    </Setting>
-    <Setting Name="FIVESEVEN_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">44</Value>
-    </Setting>
-    <Setting Name="TEC9_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">889</Value>
-    </Setting>
-    <Setting Name="R8REVOLVER_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">522</Value>
-    </Setting>
-    <Setting Name="DESERTEAGLE_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">37</Value>
-    </Setting>
-    <Setting Name="MAC10_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">433</Value>
-    </Setting>
-    <Setting Name="P90_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">182</Value>
-    </Setting>
-    <Setting Name="MP5SD_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">915</Value>
-    </Setting>
-    <Setting Name="UMP45_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">37</Value>
-    </Setting>
-    <Setting Name="PPBIZON_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">306</Value>
-    </Setting>
-    <Setting Name="MP7_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">481</Value>
-    </Setting>
-    <Setting Name="MP9_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">262</Value>
-    </Setting>
-    <Setting Name="XM1014_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">393</Value>
-    </Setting>
-    <Setting Name="MAG7_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">39</Value>
-    </Setting>
-    <Setting Name="SAWEDOFF_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">256</Value>
-    </Setting>
-    <Setting Name="NOVA_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">62</Value>
-    </Setting>
-    <Setting Name="NEGEV_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">483</Value>
+    <Setting Name="GALILAR_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
     <Setting Name="M249_SkinID" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">472</Value>
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="Killstreaknumber" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1337</Value>
+    <Setting Name="M4A4_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="Seed" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">12</Value>
+    <Setting Name="MAC10_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="DelayTriggerBot" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="P90_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="DelayAntiFlash" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="MP5SD_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="AntiFlashToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="UMP45_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="FovToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="XM1014_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="BunnyhopToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="PPBIZON_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="SkinChangerToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="MAG7_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ThirdpersonToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="NEGEV_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="TriggerbotToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="SAWEDOFF_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="FovSlider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="TEC9_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="TriggerbotShootTeammates" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="P2000_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="GlowToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="MP7_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="GlowHealthBased" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="MP9_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="GlowOnlyEnemy" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="NOVA_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="RadarToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="P250_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ChamsToggled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="SCAR20_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ChamEnemyRed" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="SG553_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ChamEnemyGreen" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="SSG08_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ChamEnemyBlue" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="M4A1S_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ChamFriendlyRed" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="USPS_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ChamFriendlyGreen" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="CZ75Auto_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">344</Value>
     </Setting>
-    <Setting Name="ChamFriendlyBlue" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="ChamBrightness" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="R8REVOLVER_SkinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">334</Value>
     </Setting>
   </Settings>
 </SettingsFile>

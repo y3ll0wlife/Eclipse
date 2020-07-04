@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -10,481 +9,23 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using MetroFramework.Forms;
-
 
 namespace Eclipse
 {
-    public partial class Form1 : MetroForm
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         public Form1()
         {
+
             InitializeComponent();
-            
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-            this.Style = MetroFramework.MetroColorStyle.Purple;
-            
-            FixColors();
-            StartGame();
+
+            Running();
         }
 
-        // Importing and setting default variables
-        [DllImport("user32.dll")]
-        public static extern int GetAsyncKeyState(int vKey);
-
-        public static int oEntityLoopDistance = 0x00000010; //
-
-        public static string ProcessName = "csgo";
-        public static int BClient;
-        public static int EngineBase;
-
-
-        private int fJump;
-        private int aLocalPlayer;
-        private int LocalPlayer;
-
-        private int fAttack;
-        private int aFlags;
-
-        private int glowObject;
-        private int myTeam;
-
-        // Memory
-        
-        public static bool Start()
-        {
-            Memory.OpenProcess(ProcessName);
-            Memory.ProcessHandle();
-            Memory.GetModules();
-
-            BClient = Memory.Client;
-            EngineBase = Memory.Engine;
-
-            return true;
-        }
-
-        // When program is launched
-        private void StartGame()
-        {
-            if (Start())
-            {
-
-                fJump = BClient + Offsets.dwForceJump;
-                aLocalPlayer = BClient + Offsets.dwLocalPlayer;
-                LocalPlayer = Memory.Read<int>(aLocalPlayer);
-
-                fAttack = BClient + Offsets.dwForceAttack;
-                aFlags = LocalPlayer + Offsets.m_fFlags;
-
-                glowObject = Memory.Read<int>(BClient + Offsets.dwGlowObjectManager);
-                myTeam = Memory.Read<int>(LocalPlayer + Offsets.m_iTeamNum);
-
-                aLocalPlayer = BClient + aLocalPlayer;
-
-
-                Thread BG = new Thread(BackgroundRunner);
-                BG.Start();
-
-            }
-        }
-      
-        private void FixColors()
-        {
-            var color = MetroFramework.MetroColorStyle.Purple;
-            CheatTabs.Style = color;
-            // Misc
-            antiFlashCheck.Style = color;
-            skinChangerCheck.Style = color;
-            bunnyCheck.Style = color;
-            thirdPersonCheck.Style = color;
-            // Aim
-            triggerbotCheck.Style = color;
-            hasToBeScopedCheck.Style = color;
-            shootTeamCheck.Style = color;
-            // Visuals
-            glowCheck.Style = color;
-            onlyEnemyGlow.Style = color;
-            healthBasedGlowCheck.Style = color;
-            radarCheck.Style = color;
-            fovCheck.Style = color;
-            chamsCheck.Style = color;
-
-            // Restore last run
-            // Scrolls
-            antiFlashScroll.Value = Properties.Settings.Default.DelayAntiFlash;
-            metroLabel7.Text = antiFlashScroll.Value + " ms";
-
-            tiggerbotDelay.Value = Properties.Settings.Default.DelayTriggerBot;
-            metroLabel5.Text = tiggerbotDelay.Value + " ms";
-
-            fovSlider.Value = Properties.Settings.Default.FovSlider;
-            metroLabel3.Text = fovSlider.Value.ToString();
-
-            redEnemyCharmSlider.Value = Properties.Settings.Default.ChamEnemyRed;
-            greenEnemyCharmSlider.Value = Properties.Settings.Default.ChamEnemyGreen;
-            blueEnemyCharmSlider.Value = Properties.Settings.Default.ChamEnemyBlue;
-
-            redFriendlyCharmSlider.Value = Properties.Settings.Default.ChamFriendlyRed;
-            greenFriendlyCharmSlider.Value = Properties.Settings.Default.ChamFriendlyGreen;
-            blueFriendlyCharmSlider.Value = Properties.Settings.Default.ChamFriendlyBlue;
-
-            brightnessCharmSlider.Value = Properties.Settings.Default.ChamBrightness;
-
-
-            // Buttons
-            antiFlashCheck.Checked = Properties.Settings.Default.AntiFlashToggled;
-            fovCheck.Checked = Properties.Settings.Default.FovToggled;
-            bunnyCheck.Checked = Properties.Settings.Default.BunnyhopToggled;
-            skinChangerCheck.Checked = Properties.Settings.Default.SkinChangerToggled;
-            thirdPersonCheck.Checked = Properties.Settings.Default.SkinChangerToggled;
-            triggerbotCheck.Checked = Properties.Settings.Default.TriggerbotToggled;
-            shootTeamCheck.Checked = Properties.Settings.Default.TriggerbotShootTeammates;
-            glowCheck.Checked = Properties.Settings.Default.GlowToggled;
-            healthBasedGlowCheck.Checked = Properties.Settings.Default.GlowHealthBased;
-            onlyEnemyGlow.Checked = Properties.Settings.Default.GlowOnlyEnemy;
-            radarCheck.Checked = Properties.Settings.Default.RadarToggled;
-            chamsCheck.Checked = Properties.Settings.Default.ChamsToggled;
-
-        }  // Fixing the colors of the program
-        private void BackgroundRunner()
-        {
-            while (true)
-            {
-              
-                fJump = BClient + Offsets.dwForceJump;
-                aLocalPlayer = BClient + Offsets.dwLocalPlayer;
-                LocalPlayer = Memory.Read<int>(aLocalPlayer);
-
-                fAttack = BClient + Offsets.dwForceAttack;
-                aFlags = LocalPlayer + Offsets.m_fFlags;
-
-                glowObject = Memory.Read<int>(BClient + Offsets.dwGlowObjectManager);
-                myTeam = Memory.Read<int>(LocalPlayer + Offsets.m_iTeamNum);
-
-                aLocalPlayer = BClient + aLocalPlayer;
-
-                Thread.Sleep(1);
-
-            }
-        }
-
-        // Functions
-        private bool IsScoped()
-        {
-            return Memory.Read<bool>(LocalPlayer + Offsets.m_bIsScoped);
-        } // Checks if user is scoped
-
-        private void Shoot()
-        {
-            Thread.Sleep(Convert.ToInt32(tiggerbotDelay.Value));
-            Memory.Write<int>(fAttack, 1);
-            Thread.Sleep(10);
-            Memory.Write<int>(fAttack, 4);
-        } // Force shoot
-
-        private void ApplySkin(int WeapInt, int skinID, int KillstreakNum)
-        {
-            Memory.Write(WeapInt + Offsets.m_iItemIDHigh, 1);
-            Memory.Write(WeapInt + Offsets.m_nFallbackPaintKit, skinID); // Skin ID
-            Memory.Write(WeapInt + Offsets.m_nFallbackStatTrak, KillstreakNum); // Kill streak number
-            Memory.Write(WeapInt + Offsets.m_nFallbackSeed, 12); // Seed
-            Memory.Write(WeapInt + Offsets.m_flFallbackWear, 0f); // Float value
-           
-        }
-
-        // Cheats
-        private void AntiFlash()
-        {
-            while (antiFlashCheck.Checked)
-            {
-                int flashDur = 0;
-                flashDur = Memory.Read<int>(LocalPlayer + Offsets.m_flFlashDuration);
-                if (flashDur != 0)
-                {
-                    Thread.Sleep(antiFlashScroll.Value);
-                    Memory.Write(LocalPlayer + Offsets.m_flFlashDuration, 0);
-                }
-                Thread.Sleep(10);
-            }
-        } // Anti Flash
-        private void Bunnyhop()
-        {
-            while (bunnyCheck.Checked)
-            {
-                while (GetAsyncKeyState(32) > 0)
-                { 
-                    int flag = Memory.Read<int>(aFlags);
-
-                    if (flag == 257 || flag == 263)
-                    {
-                        Memory.Write(fJump, 5);
-                        Thread.Sleep(10);
-                        Memory.Write(fJump, 4);
-
-                    }
-
-                }
-                Thread.Sleep(10);
-            }
-        } // Bunnyhop
-        private void Glow()
-        {
-            while (glowCheck.Checked)
-            {
-                for (int i = 0; i < 64; i++)
-                {
-                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
-
-                    int glowIndx = Memory.Read<int>(entity + Offsets.m_iGlowIndex);
-                    int entityTeam = Memory.Read<int>(entity + Offsets.m_iTeamNum);
-
-                    int entityHealth = Memory.Read<int>(entity + Offsets.m_iHealth);
-
-
-                  
-                    if (myTeam == entityTeam)
-                    {
-                        if (onlyEnemyGlow.Checked) continue;
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x4), 0);
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x8), 0);
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0xC), 2);
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x10), 1);
-                    }
-                    else
-                    {
-                        float val1 = 1;
-                        float val2 = 0;
-                        float val3 = 0;
-                        float val4 = 1;
-
-                        if (entityHealth > 75 && healthBasedGlowCheck.Checked) // Green
-                        {
-                            val1 = 0;
-                            val2 = 1;
-                            val3 = 0;
-                            val4 = 1;
-                        }
-                        else if (entityHealth > 50 && healthBasedGlowCheck.Checked) // Yellow
-                        {
-                            val1 = 1;
-                            val2 = 1;
-                            val3 = 0;
-                            val4 = 1;
-                        }
-                        else if (entityHealth > 25 && healthBasedGlowCheck.Checked) // Red
-                        {
-                            val1 = 1;
-                            val2 = 0;
-                            val3 = 0;
-                            val4 = 1;
-                        }
-
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x4), val1);
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x8), val2);
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0xC), val3);
-                        Memory.Write(glowObject + ((glowIndx * 0x38) + 0x10), val4);
-                    }
-
-                    Memory.Write(glowObject + ((glowIndx * 0x38) + 0x24), true);
-                    Memory.Write(glowObject + ((glowIndx * 0x38) + 0x25), false);
-
-                }
-                Thread.Sleep(10);
-            }
-        } // Glow
-        private void TriggerBot()
-        {
-            while (triggerbotCheck.Checked)
-            {
-                int address = LocalPlayer + Offsets.m_iCrosshairId;
-                int PlayerInCross = Memory.Read<int>(address);
-                int WeaponIndex = Memory.Read<int>(LocalPlayer + Offsets.m_hActiveWeapon) & 0xFFF;
-                int WeapInt = Memory.Read<int>((BClient + Offsets.dwEntityList + WeaponIndex * 0x10) - 0x10);
-                int WeaponID = Memory.Read<int>(WeapInt + Offsets.m_iItemDefinitionIndex);
-
-                if (PlayerInCross > 0 && PlayerInCross < 65)
-                {
-                    address = BClient + Offsets.dwEntityList + (PlayerInCross - 1) * oEntityLoopDistance;
-                    int PtrToPIC = Memory.Read<int>(address);
-
-                    address = PtrToPIC + Offsets.m_iHealth;
-                    int PICHealth = Memory.Read<int>(address);
-
-                    address = PtrToPIC + Offsets.m_iTeamNum;
-                    int PICTeam = Memory.Read<int>(address);
-
-                    if (((PICTeam != myTeam) && (PICTeam > 1) && (PICHealth > 0)) || shootTeamCheck.Checked && (PICTeam > 1) && (PICHealth > 0))
-                    {
-                        if (hasToBeScopedCheck.Checked)
-                        {
-                            if (WeaponID == 8 || WeaponID == 9 || WeaponID == 11 || WeaponID == 38 || WeaponID == 39 ||
-                                WeaponID == 40)
-                            {
-                                if(IsScoped()) Shoot();
-                            }
-                            else Shoot();
-                        }
-                        else Shoot();
-                    }
-                }
-                Thread.Sleep(10);
-            }
-        }  // Triggerbot
-        private void SkinChanger()
-        {
-            while (skinChangerCheck.Checked)
-            {
-                int WeaponIndex = Memory.Read<int>(LocalPlayer + Offsets.m_hActiveWeapon) & 0xFFF;
-                int WeapInt = Memory.Read<int>((BClient + Offsets.dwEntityList + WeaponIndex * 0x10) - 0x10);
-                int WeaponID = Memory.Read<int>(WeapInt + Offsets.m_iItemDefinitionIndex);
-              
-                //Debug.WriteLine(WeaponID);
-
-                // https://www.mpgh.net/forum/showthread.php?t=1031822
-                // https://www.mpgh.net/forum/showthread.php?t=1031822
-                // https://tf2b.com/itemlist.php?gid=730
-
-                if (WeaponID == 1)ApplySkin(WeapInt, Properties.Settings.Default.DESERTEAGLE_SkinID, Properties.Settings.Default.Killstreaknumber); //Desert Eagle
-                else if (WeaponID == 2) ApplySkin(WeapInt, Properties.Settings.Default.DUALBERETTAS_SkinID, Properties.Settings.Default.Killstreaknumber); // Dual Berettas
-                else if (WeaponID == 3) ApplySkin(WeapInt, Properties.Settings.Default.FIVESEVEN_SkinID, Properties.Settings.Default.Killstreaknumber); //Five-SeveN
-                else if (WeaponID == 4) ApplySkin(WeapInt, Properties.Settings.Default.Glock18_SkinID, Properties.Settings.Default.Killstreaknumber);// Glock-18
-                else if (WeaponID == 7) ApplySkin(WeapInt, Properties.Settings.Default.AK47_SkinID, Properties.Settings.Default.Killstreaknumber);// Ak-47
-                else if (WeaponID == 8) ApplySkin(WeapInt, Properties.Settings.Default.AUG_SkinID, Properties.Settings.Default.Killstreaknumber);// AUG
-                else if (WeaponID == 9) ApplySkin(WeapInt, Properties.Settings.Default.AWP_SkinID, Properties.Settings.Default.Killstreaknumber);// AWP
-                else if (WeaponID == 10) ApplySkin(WeapInt, Properties.Settings.Default.FAMAS_SkinID, Properties.Settings.Default.Killstreaknumber); // FAMAS
-                else if (WeaponID == 11) ApplySkin(WeapInt, Properties.Settings.Default.G3SG1_SkinID, Properties.Settings.Default.Killstreaknumber);// G3SSG1
-                else if (WeaponID == 13) ApplySkin(WeapInt, Properties.Settings.Default.GALILAR_SkinID, Properties.Settings.Default.Killstreaknumber); // Galil AR
-                else if (WeaponID == 14) ApplySkin(WeapInt, Properties.Settings.Default.M249_SkinID, Properties.Settings.Default.Killstreaknumber);// M249
-                else if (WeaponID == 16) ApplySkin(WeapInt, Properties.Settings.Default.M4A4_SkinID, Properties.Settings.Default.Killstreaknumber); // M4A4
-                else if (WeaponID == 17) ApplySkin(WeapInt, Properties.Settings.Default.MAC10_SkinID, Properties.Settings.Default.Killstreaknumber); // MAC-10
-                else if (WeaponID == 19) ApplySkin(WeapInt, Properties.Settings.Default.P90_SkinID, Properties.Settings.Default.Killstreaknumber); // P90 
-                else if (WeaponID == 23) ApplySkin(WeapInt, Properties.Settings.Default.MP5SD_SkinID, Properties.Settings.Default.Killstreaknumber); // Mp5-SD
-                else if (WeaponID == 24) ApplySkin(WeapInt, Properties.Settings.Default.UMP45_SkinID, Properties.Settings.Default.Killstreaknumber); // UMP-45
-                else if (WeaponID == 25) ApplySkin(WeapInt, Properties.Settings.Default.XM1014_SkinID, Properties.Settings.Default.Killstreaknumber); // XM1014 
-                else if (WeaponID == 26) ApplySkin(WeapInt, Properties.Settings.Default.PPBIZON_SkinID, Properties.Settings.Default.Killstreaknumber); // PP-Bizon
-                else if (WeaponID == 27) ApplySkin(WeapInt, Properties.Settings.Default.MAG7_SkinID, Properties.Settings.Default.Killstreaknumber); // MAG-7
-                else if (WeaponID == 28) ApplySkin(WeapInt, Properties.Settings.Default.NEGEV_SkinID, Properties.Settings.Default.Killstreaknumber); // NEGEV
-                else if (WeaponID == 29) ApplySkin(WeapInt, Properties.Settings.Default.SAWEDOFF_SkinID, Properties.Settings.Default.Killstreaknumber);// Sawed-Off
-                else if (WeaponID == 30) ApplySkin(WeapInt, Properties.Settings.Default.TEC9_SkinID, Properties.Settings.Default.Killstreaknumber);// TEC-9
-                else if (WeaponID == 32) ApplySkin(WeapInt, Properties.Settings.Default.P2000_SkinID, Properties.Settings.Default.Killstreaknumber); // P2000
-                else if (WeaponID == 33) ApplySkin(WeapInt, Properties.Settings.Default.MP7_SkinID, Properties.Settings.Default.Killstreaknumber); // MP7
-                else if (WeaponID == 34) ApplySkin(WeapInt, Properties.Settings.Default.MP9_SkinID, Properties.Settings.Default.Killstreaknumber); // MP9
-                else if (WeaponID == 35) ApplySkin(WeapInt, Properties.Settings.Default.NOVA_SkinID, Properties.Settings.Default.Killstreaknumber); // Nova
-                else if (WeaponID == 36) ApplySkin(WeapInt, Properties.Settings.Default.P250_SkinID, Properties.Settings.Default.Killstreaknumber); // P250
-                else if (WeaponID == 38) ApplySkin(WeapInt, Properties.Settings.Default.SCAR20_SkinID, Properties.Settings.Default.Killstreaknumber); // SCAR-20
-                else if (WeaponID == 39) ApplySkin(WeapInt, Properties.Settings.Default.SG553_SkinID, Properties.Settings.Default.Killstreaknumber); // SG-553
-                else if (WeaponID == 40) ApplySkin(WeapInt, Properties.Settings.Default.SSG08_SkinID, Properties.Settings.Default.Killstreaknumber); // SSG 08
-                else if (WeaponID == 60) ApplySkin(WeapInt, Properties.Settings.Default.M4A1S_SkinID, Properties.Settings.Default.Killstreaknumber);// M4A1-S
-                else if (WeaponID == 61) ApplySkin(WeapInt, Properties.Settings.Default.USPS_SkinID, Properties.Settings.Default.Killstreaknumber); // USP-S
-                else if (WeaponID == 63) ApplySkin(WeapInt, Properties.Settings.Default.CZ75Auto_SkinID, Properties.Settings.Default.Killstreaknumber); // CZ75-Auto
-                else if (WeaponID == 64) ApplySkin(WeapInt, Properties.Settings.Default.R8REVOLVER_SkinID, Properties.Settings.Default.Killstreaknumber); // R8 Revolver
-
-                Memory.Write(Offsets.dwClientState_GetLocalPlayer + 0x16C, -1);
-
-                Properties.Settings.Default.Save();
-            }
-        } // Skin changer
-        private void Radar()
-        {
-            while (radarCheck.Checked)
-            {
-                for (int i = 0; i < 64; i++)
-                {
-                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
-                    Memory.Write(entity + Offsets.m_bSpotted, true);
-                }
-
-                Thread.Sleep(10);
-            }
-        } // Radar
-        private void Fov()
-        {
-            while (fovCheck.Checked)
-            {
-                Memory.Write(LocalPlayer + Offsets.m_iFOV, fovSlider.Value);
-               Thread.Sleep(10);
-            }
-        } // Fov changer
-        private void Chams()
-        {
-            while (chamsCheck.Checked)
-            {
-                for (int i = 0; i < 64; i++)
-                {
-                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
-                    int entityTeam = Memory.Read<int>(entity + Offsets.m_iTeamNum);
-
-                    if (myTeam == entityTeam)
-                    {
-                        //Model Color
-                        Memory.Write(entity + 0x70, (byte)redFriendlyCharmSlider.Value); // r
-                        Memory.Write(entity + 0x71, (byte)greenFriendlyCharmSlider.Value); // g
-                        Memory.Write(entity + 0x72, (byte)blueFriendlyCharmSlider.Value); // b
-                    }
-                    else
-                    {
-                        //Model Color
-                        Memory.Write(entity + 0x70, (byte)redEnemyCharmSlider.Value); // r
-                        Memory.Write(entity + 0x71, (byte)greenEnemyCharmSlider.Value); // g
-                        Memory.Write(entity + 0x72, (byte)blueEnemyCharmSlider.Value); // b
-                    }
-                    // https://www.unknowncheats.me/forum/counterstrike-global-offensive/305257-clrrender-brightness-external-chams.html
-                }
-                float brightness = (float)brightnessCharmSlider.Value;
-                int thisPtr = (int)(EngineBase + Offsets.model_ambient_min - 0x2c);
-
-                byte[] bytearray = BitConverter.GetBytes(brightness);
-                int intbrightness = BitConverter.ToInt32(bytearray, 0);
-                int xored = intbrightness ^ thisPtr;
-
-                Memory.Write(EngineBase + Offsets.model_ambient_min, xored);
-
-                Thread.Sleep(10);
-            }
-
-            if (chamsCheck.Checked == false)
-            {
-                for (int i = 0; i < 64; i++)
-                {
-                    int entity = Memory.Read<int>(BClient + Offsets.dwEntityList + i * 0x10);
-                    int entityTeam = Memory.Read<int>(entity + Offsets.m_iTeamNum);
-
-                    if (myTeam == entityTeam)
-                    {
-                        //Model Color
-                        Memory.Write(entity + 0x70, (byte)255); // r
-                        Memory.Write(entity + 0x71, (byte)255); // g
-                        Memory.Write(entity + 0x72, (byte)255); // b
-                    }
-                    else
-                    {
-                        //Model Color
-                        Memory.Write(entity + 0x70, (byte)255); // r
-                        Memory.Write(entity + 0x71, (byte)255); // g
-                        Memory.Write(entity + 0x72, (byte)255); // b
-                    }
-                    // https://www.unknowncheats.me/forum/counterstrike-global-offensive/305257-clrrender-brightness-external-chams.html
-                }
-
-                float brightness = (float)0;
-                int thisPtr = (int)(EngineBase + Offsets.model_ambient_min - 0x2c);
-
-                byte[] bytearray = BitConverter.GetBytes(brightness);
-                int intbrightness = BitConverter.ToInt32(bytearray, 0);
-                int xored = intbrightness ^ thisPtr;
-
-                Memory.Write(EngineBase + Offsets.model_ambient_min, xored);
-
-            }
-        }
-       
-
-      
         //  When the form is closed
-        void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private static void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Process[] ps = Process.GetProcessesByName("Eclipse");
 
@@ -492,238 +33,133 @@ namespace Eclipse
             {
                 try
                 {
-                    if (!p.HasExited)
-                    {
-                        p.Kill();
-                    }
+                    if (!p.HasExited) p.Kill();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(String.Format("Unable to kill process {0}, exception: {1}", p.ToString(), ex.ToString()));
+                    Debug.WriteLine(String.Format("Unable to kill process {0}, exception: {1}", p.ToString(), ex.ToString()));
                 }
             }
 
         }
 
-        // Checks
-        private void glowCheck_CheckedChanged(object sender, EventArgs e)
+        public static bool IsReady()
         {
-            if (glowCheck.Checked)
+            Memory.OpenProcess(Config.Process_name);
+            Memory.ProcessHandle();
+            Memory.GetModules();
+
+            Player.BaseClient = Memory.Client;
+            Player.EngineBase = Memory.Engine;
+
+            return true;
+        }
+
+        private static void Running()
+        {
+            if (IsReady())
             {
-                Thread Glow = new Thread(this.Glow);
-                Glow.Start();
+                Utils.UpdateActions();
+
+                Thread runner = new Thread(BackgroundRunner);
+                runner.Start();
             }
-            Properties.Settings.Default.GlowToggled = glowCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void radarCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radarCheck.Checked)
+            else
             {
-                Thread Glow = new Thread(this.Radar);
-                Glow.Start();
+                MessageBox.Show("Error when starting the client");
+                Thread.Sleep(5000);
             }
-            Properties.Settings.Default.RadarToggled = radarCheck.Checked;
-            Properties.Settings.Default.Save();
         }
-        private void antiFlashCheck_CheckedChanged(object sender, EventArgs e)
+
+        private static void BackgroundRunner()
         {
-            if (antiFlashCheck.Checked)
+            while (true)
             {
-                Thread AntiFlash = new Thread(this.AntiFlash);
-                AntiFlash.Start();
+                Utils.UpdateActions();
+                Thread.Sleep(5000);
             }
-
-            Properties.Settings.Default.AntiFlashToggled = antiFlashCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void skinChangerCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (skinChangerCheck.Checked)
-            {
-                Thread SkinChanger = new Thread(this.SkinChanger);
-                SkinChanger.Start();
-            }
-            Properties.Settings.Default.SkinChangerToggled = skinChangerCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void thirdPersonCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (thirdPersonCheck.Checked) Memory.Write(LocalPlayer + Offsets.m_iObserverMode, 1);
-            else Memory.Write(LocalPlayer + Offsets.m_iObserverMode, 0);
-
-            Properties.Settings.Default.ThirdpersonToggled = thirdPersonCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void bunnyCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (bunnyCheck.Checked)
-            {
-                Thread BunnyHop = new Thread(this.Bunnyhop);
-                BunnyHop.Start();
-            }
-            Properties.Settings.Default.BunnyhopToggled = bunnyCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void triggerbotCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (triggerbotCheck.Checked)
-            {
-                Thread TriggerBot = new Thread(this.TriggerBot);
-                TriggerBot.Start();
-            }
-            Properties.Settings.Default.TriggerbotToggled = triggerbotCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void fovCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (fovCheck.Checked)
-            {
-                Thread f = new Thread(this.Fov);
-                f.Start();
-            }
-            Properties.Settings.Default.FovToggled = fovCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void chamsCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chamsCheck.Checked)
-            {
-                Thread f = new Thread(this.Chams);
-                f.Start();
-            }
-            Properties.Settings.Default.ChamsToggled = chamsCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        // Scrolls
-        private void tiggerbotDelay_Scroll(object sender, ScrollEventArgs e)
-        {
-            double indexDbl = (tiggerbotDelay.Value * 1.0) / 5;
-            int index = Convert.ToInt32(Math.Round(indexDbl));
-
-            tiggerbotDelay.Value = 5 * index;
-
-            metroLabel5.Text = tiggerbotDelay.Value + " ms";
-
-            Properties.Settings.Default.DelayTriggerBot = tiggerbotDelay.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void antiFlashScroll_Scroll_1(object sender, ScrollEventArgs e)
-        {
-            double indexDbl = (antiFlashScroll.Value * 1.0) / 10;
-            int index = Convert.ToInt32(Math.Round(indexDbl));
-
-            antiFlashScroll.Value = 10 * index;
-
-            metroLabel7.Text = antiFlashScroll.Value + " ms";
-
-            Properties.Settings.Default.DelayAntiFlash = antiFlashScroll.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void fovSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            metroLabel3.Text = fovSlider.Value.ToString();
-
-            Properties.Settings.Default.FovSlider = fovSlider.Value;
-            Properties.Settings.Default.Save();
-        }
-        // New skin
-        private void applySkinUpdate_Click(object sender, EventArgs e)
-        {
-            string gun = weaponName.Text.Replace("-", "");
-            gun = gun.ToUpper();
-
-            Properties.Settings.Default[gun.Replace(" ", "") + "_SkinID"] = Convert.ToInt32(skinID.Text);
-            Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
 
-        private void shootTeamCheck_CheckedChanged(object sender, EventArgs e)
+
+        // ===Aim===
+        // Triggerbot
+        public void TriggerbotCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.TriggerbotShootTeammates = shootTeamCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void healthBasedGlowCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.GlowHealthBased = healthBasedGlowCheck.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void onlyEnemyGlow_CheckedChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.GlowOnlyEnemy = onlyEnemyGlow.Checked;
-            Properties.Settings.Default.Save();
-        }
-        private void redEnemyCharmSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            Properties.Settings.Default.ChamEnemyRed = redEnemyCharmSlider.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void greenEnemyCharmSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            Properties.Settings.Default.ChamEnemyGreen = greenEnemyCharmSlider.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void blueEnemyCharmSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            Properties.Settings.Default.ChamEnemyBlue= blueEnemyCharmSlider.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void redFriendlyCharmSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            Properties.Settings.Default.ChamFriendlyRed = redFriendlyCharmSlider.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void greenFriendlyCharmSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            Properties.Settings.Default.ChamFriendlyGreen = greenFriendlyCharmSlider.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void blueFriendlyCharmSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            Properties.Settings.Default.ChamFriendlyBlue= blueFriendlyCharmSlider.Value;
-            Properties.Settings.Default.Save();
-        }
-        private void brightnessCharmSlider_Scroll(object sender, ScrollEventArgs e)
-        {
-            Properties.Settings.Default.ChamBrightness = brightnessCharmSlider.Value;
-            Properties.Settings.Default.Save();
+            Thread thread = new Thread(() => Cheats.Triggerbot(TriggerbotCheck, TriggerbotScopebefore, TriggerbotShootTeammates, DelayTriggerbotMS));
+            thread.Start();
         }
 
-        // Tabs
-        // Aim
-        private void label1_Click(object sender, EventArgs e)
+        private void DelayTriggerbotMS_Scroll(object sender, ScrollEventArgs e)
         {
-            CheatTabs.SelectedTab = aimTab;
+            TriggerbotDelayLabel.Text = DelayTriggerbotMS.Value + " ms";
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+
+
+        //==Visual==
+        // Glow
+        private void GlowCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheatTabs.SelectedTab = aimTab;
+            Thread thread = new Thread(() => Cheats.Glow(GlowCheck, GlowHealthbased, GlowOnlyEnemy, GlowOnlyTeammates));
+            thread.Start();
         }
-        // Visual
-        private void label2_Click(object sender, EventArgs e)
+        // Chams
+        private void ChamsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheatTabs.SelectedTab = visualTab;
+            Thread thread = new Thread(() => Cheats.Chams(ChamsCheck, ChamFriendlyRed, ChamFriendlyGreen, ChamFriendlyBlue, ChamEnemyRed, ChamEnemyGreen, ChamEnemyBlue, ChamBrigtness));
+            thread.Start();
         }
-        private void pictureBox4_Click(object sender, EventArgs e)
+
+        // Radar
+        private void RadarCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheatTabs.SelectedTab = visualTab;
+            Thread thread = new Thread(() => Cheats.Radar(RadarCheck));
+            thread.Start();
         }
-        // Misc
-        private void label3_Click(object sender, EventArgs e)
+
+        // ===MISC===
+        // Bunnyhop
+        private void BunnyhopCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheatTabs.SelectedTab = miscTab;
+            Thread thread = new Thread(() => Cheats.Bunnyhop(BunnyhopCheck));
+            thread.Start();
         }
-        private void pictureBox2_Click(object sender, EventArgs e)
+
+
+        // Anti Flash
+        private void AntiflashCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheatTabs.SelectedTab = miscTab;
+            Thread thread = new Thread(() => Cheats.AntiFlash(AntiflashCheck, AntiflashDelay));
+            thread.Start();
         }
+        private void AntiflashDelay_Scroll(object sender, ScrollEventArgs e)
+        {
+            AntiflashDelayLabel.Text = AntiflashDelay.Value + " ms";
+        }
+
+
         // Skin Changer
-        private void label4_Click(object sender, EventArgs e)
+        private void SkinchangerCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheatTabs.SelectedTab = skinChangerTab;
+            Thread thread = new Thread(() => Cheats.SkinChanger(SkinchangerCheck));
+            thread.Start();
         }
-        private void pictureBox3_Click(object sender, EventArgs e)
+        // Fov Changer
+        private void FovCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheatTabs.SelectedTab = skinChangerTab;
+            Thread thread = new Thread(() => Cheats.Fov(FovCheck, FovAmount));
+            thread.Start();
         }
+
+        // Third person
+        private void ThirdpersonCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(() => Cheats.ThirdPerson(ThirdpersonCheck));
+            thread.Start();
+
+            if(!ThirdpersonCheck.Checked) Memory.Write(Player.LocalPlayer + Offsets.m_iObserverMode, 0);
+        }
+
+        
     }
 }

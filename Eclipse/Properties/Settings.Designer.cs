@@ -25,7 +25,67 @@ namespace Eclipse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("675")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1337")]
+        public int Killstreaknumber {
+            get {
+                return ((int)(this["Killstreaknumber"]));
+            }
+            set {
+                this["Killstreaknumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int DESERTEAGLE_SkinID {
+            get {
+                return ((int)(this["DESERTEAGLE_SkinID"]));
+            }
+            set {
+                this["DESERTEAGLE_SkinID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int DUALBERETTAS_SkinID {
+            get {
+                return ((int)(this["DUALBERETTAS_SkinID"]));
+            }
+            set {
+                this["DUALBERETTAS_SkinID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int FIVESEVEN_SkinID {
+            get {
+                return ((int)(this["FIVESEVEN_SkinID"]));
+            }
+            set {
+                this["FIVESEVEN_SkinID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int Glock18_SkinID {
+            get {
+                return ((int)(this["Glock18_SkinID"]));
+            }
+            set {
+                this["Glock18_SkinID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
         public int AK47_SkinID {
             get {
                 return ((int)(this["AK47_SkinID"]));
@@ -37,7 +97,7 @@ namespace Eclipse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("455")]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
         public int AUG_SkinID {
             get {
                 return ((int)(this["AUG_SkinID"]));
@@ -61,7 +121,7 @@ namespace Eclipse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("260")]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
         public int FAMAS_SkinID {
             get {
                 return ((int)(this["FAMAS_SkinID"]));
@@ -73,79 +133,7 @@ namespace Eclipse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("478")]
-        public int GALILAR_SkinID {
-            get {
-                return ((int)(this["GALILAR_SkinID"]));
-            }
-            set {
-                this["GALILAR_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("430")]
-        public int M4A1S_SkinID {
-            get {
-                return ((int)(this["M4A1S_SkinID"]));
-            }
-            set {
-                this["M4A1S_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("309")]
-        public int M4A4_SkinID {
-            get {
-                return ((int)(this["M4A4_SkinID"]));
-            }
-            set {
-                this["M4A4_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("391")]
-        public int SCAR20_SkinID {
-            get {
-                return ((int)(this["SCAR20_SkinID"]));
-            }
-            set {
-                this["SCAR20_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("487")]
-        public int SG553_SkinID {
-            get {
-                return ((int)(this["SG553_SkinID"]));
-            }
-            set {
-                this["SG553_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("222")]
-        public int SSG08_SkinID {
-            get {
-                return ((int)(this["SSG08_SkinID"]));
-            }
-            set {
-                this["SSG08_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("487")]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
         public int G3SG1_SkinID {
             get {
                 return ((int)(this["G3SG1_SkinID"]));
@@ -157,271 +145,19 @@ namespace Eclipse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("476")]
-        public int CZ75Auto_SkinID {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int GALILAR_SkinID {
             get {
-                return ((int)(this["CZ75Auto_SkinID"]));
+                return ((int)(this["GALILAR_SkinID"]));
             }
             set {
-                this["CZ75Auto_SkinID"] = value;
+                this["GALILAR_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("38")]
-        public int Glock18_SkinID {
-            get {
-                return ((int)(this["Glock18_SkinID"]));
-            }
-            set {
-                this["Glock18_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("313")]
-        public int USPS_SkinID {
-            get {
-                return ((int)(this["USPS_SkinID"]));
-            }
-            set {
-                this["USPS_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("389")]
-        public int P2000_SkinID {
-            get {
-                return ((int)(this["P2000_SkinID"]));
-            }
-            set {
-                this["P2000_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("388")]
-        public int P250_SkinID {
-            get {
-                return ((int)(this["P250_SkinID"]));
-            }
-            set {
-                this["P250_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("261")]
-        public int DUALBERETTAS_SkinID {
-            get {
-                return ((int)(this["DUALBERETTAS_SkinID"]));
-            }
-            set {
-                this["DUALBERETTAS_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("44")]
-        public int FIVESEVEN_SkinID {
-            get {
-                return ((int)(this["FIVESEVEN_SkinID"]));
-            }
-            set {
-                this["FIVESEVEN_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("889")]
-        public int TEC9_SkinID {
-            get {
-                return ((int)(this["TEC9_SkinID"]));
-            }
-            set {
-                this["TEC9_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("522")]
-        public int R8REVOLVER_SkinID {
-            get {
-                return ((int)(this["R8REVOLVER_SkinID"]));
-            }
-            set {
-                this["R8REVOLVER_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("37")]
-        public int DESERTEAGLE_SkinID {
-            get {
-                return ((int)(this["DESERTEAGLE_SkinID"]));
-            }
-            set {
-                this["DESERTEAGLE_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("433")]
-        public int MAC10_SkinID {
-            get {
-                return ((int)(this["MAC10_SkinID"]));
-            }
-            set {
-                this["MAC10_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("182")]
-        public int P90_SkinID {
-            get {
-                return ((int)(this["P90_SkinID"]));
-            }
-            set {
-                this["P90_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("915")]
-        public int MP5SD_SkinID {
-            get {
-                return ((int)(this["MP5SD_SkinID"]));
-            }
-            set {
-                this["MP5SD_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("37")]
-        public int UMP45_SkinID {
-            get {
-                return ((int)(this["UMP45_SkinID"]));
-            }
-            set {
-                this["UMP45_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("306")]
-        public int PPBIZON_SkinID {
-            get {
-                return ((int)(this["PPBIZON_SkinID"]));
-            }
-            set {
-                this["PPBIZON_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("481")]
-        public int MP7_SkinID {
-            get {
-                return ((int)(this["MP7_SkinID"]));
-            }
-            set {
-                this["MP7_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("262")]
-        public int MP9_SkinID {
-            get {
-                return ((int)(this["MP9_SkinID"]));
-            }
-            set {
-                this["MP9_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("393")]
-        public int XM1014_SkinID {
-            get {
-                return ((int)(this["XM1014_SkinID"]));
-            }
-            set {
-                this["XM1014_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("39")]
-        public int MAG7_SkinID {
-            get {
-                return ((int)(this["MAG7_SkinID"]));
-            }
-            set {
-                this["MAG7_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("256")]
-        public int SAWEDOFF_SkinID {
-            get {
-                return ((int)(this["SAWEDOFF_SkinID"]));
-            }
-            set {
-                this["SAWEDOFF_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("62")]
-        public int NOVA_SkinID {
-            get {
-                return ((int)(this["NOVA_SkinID"]));
-            }
-            set {
-                this["NOVA_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("483")]
-        public int NEGEV_SkinID {
-            get {
-                return ((int)(this["NEGEV_SkinID"]));
-            }
-            set {
-                this["NEGEV_SkinID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("472")]
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
         public int M249_SkinID {
             get {
                 return ((int)(this["M249_SkinID"]));
@@ -433,289 +169,277 @@ namespace Eclipse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1337")]
-        public int Killstreaknumber {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int M4A4_SkinID {
             get {
-                return ((int)(this["Killstreaknumber"]));
+                return ((int)(this["M4A4_SkinID"]));
             }
             set {
-                this["Killstreaknumber"] = value;
+                this["M4A4_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
-        public int Seed {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int MAC10_SkinID {
             get {
-                return ((int)(this["Seed"]));
+                return ((int)(this["MAC10_SkinID"]));
             }
             set {
-                this["Seed"] = value;
+                this["MAC10_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int DelayTriggerBot {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int P90_SkinID {
             get {
-                return ((int)(this["DelayTriggerBot"]));
+                return ((int)(this["P90_SkinID"]));
             }
             set {
-                this["DelayTriggerBot"] = value;
+                this["P90_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int DelayAntiFlash {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int MP5SD_SkinID {
             get {
-                return ((int)(this["DelayAntiFlash"]));
+                return ((int)(this["MP5SD_SkinID"]));
             }
             set {
-                this["DelayAntiFlash"] = value;
+                this["MP5SD_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool AntiFlashToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int UMP45_SkinID {
             get {
-                return ((bool)(this["AntiFlashToggled"]));
+                return ((int)(this["UMP45_SkinID"]));
             }
             set {
-                this["AntiFlashToggled"] = value;
+                this["UMP45_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool FovToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int XM1014_SkinID {
             get {
-                return ((bool)(this["FovToggled"]));
+                return ((int)(this["XM1014_SkinID"]));
             }
             set {
-                this["FovToggled"] = value;
+                this["XM1014_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool BunnyhopToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int PPBIZON_SkinID {
             get {
-                return ((bool)(this["BunnyhopToggled"]));
+                return ((int)(this["PPBIZON_SkinID"]));
             }
             set {
-                this["BunnyhopToggled"] = value;
+                this["PPBIZON_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SkinChangerToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int MAG7_SkinID {
             get {
-                return ((bool)(this["SkinChangerToggled"]));
+                return ((int)(this["MAG7_SkinID"]));
             }
             set {
-                this["SkinChangerToggled"] = value;
+                this["MAG7_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ThirdpersonToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int NEGEV_SkinID {
             get {
-                return ((bool)(this["ThirdpersonToggled"]));
+                return ((int)(this["NEGEV_SkinID"]));
             }
             set {
-                this["ThirdpersonToggled"] = value;
+                this["NEGEV_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool TriggerbotToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int SAWEDOFF_SkinID {
             get {
-                return ((bool)(this["TriggerbotToggled"]));
+                return ((int)(this["SAWEDOFF_SkinID"]));
             }
             set {
-                this["TriggerbotToggled"] = value;
+                this["SAWEDOFF_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int FovSlider {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int TEC9_SkinID {
             get {
-                return ((int)(this["FovSlider"]));
+                return ((int)(this["TEC9_SkinID"]));
             }
             set {
-                this["FovSlider"] = value;
+                this["TEC9_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool TriggerbotShootTeammates {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int P2000_SkinID {
             get {
-                return ((bool)(this["TriggerbotShootTeammates"]));
+                return ((int)(this["P2000_SkinID"]));
             }
             set {
-                this["TriggerbotShootTeammates"] = value;
+                this["P2000_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool GlowToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int MP7_SkinID {
             get {
-                return ((bool)(this["GlowToggled"]));
+                return ((int)(this["MP7_SkinID"]));
             }
             set {
-                this["GlowToggled"] = value;
+                this["MP7_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool GlowHealthBased {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int MP9_SkinID {
             get {
-                return ((bool)(this["GlowHealthBased"]));
+                return ((int)(this["MP9_SkinID"]));
             }
             set {
-                this["GlowHealthBased"] = value;
+                this["MP9_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool GlowOnlyEnemy {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int NOVA_SkinID {
             get {
-                return ((bool)(this["GlowOnlyEnemy"]));
+                return ((int)(this["NOVA_SkinID"]));
             }
             set {
-                this["GlowOnlyEnemy"] = value;
+                this["NOVA_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool RadarToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int P250_SkinID {
             get {
-                return ((bool)(this["RadarToggled"]));
+                return ((int)(this["P250_SkinID"]));
             }
             set {
-                this["RadarToggled"] = value;
+                this["P250_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ChamsToggled {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int SCAR20_SkinID {
             get {
-                return ((bool)(this["ChamsToggled"]));
+                return ((int)(this["SCAR20_SkinID"]));
             }
             set {
-                this["ChamsToggled"] = value;
+                this["SCAR20_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ChamEnemyRed {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int SG553_SkinID {
             get {
-                return ((int)(this["ChamEnemyRed"]));
+                return ((int)(this["SG553_SkinID"]));
             }
             set {
-                this["ChamEnemyRed"] = value;
+                this["SG553_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ChamEnemyGreen {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int SSG08_SkinID {
             get {
-                return ((int)(this["ChamEnemyGreen"]));
+                return ((int)(this["SSG08_SkinID"]));
             }
             set {
-                this["ChamEnemyGreen"] = value;
+                this["SSG08_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ChamEnemyBlue {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int M4A1S_SkinID {
             get {
-                return ((int)(this["ChamEnemyBlue"]));
+                return ((int)(this["M4A1S_SkinID"]));
             }
             set {
-                this["ChamEnemyBlue"] = value;
+                this["M4A1S_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ChamFriendlyRed {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int USPS_SkinID {
             get {
-                return ((int)(this["ChamFriendlyRed"]));
+                return ((int)(this["USPS_SkinID"]));
             }
             set {
-                this["ChamFriendlyRed"] = value;
+                this["USPS_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ChamFriendlyGreen {
+        [global::System.Configuration.DefaultSettingValueAttribute("344")]
+        public int CZ75Auto_SkinID {
             get {
-                return ((int)(this["ChamFriendlyGreen"]));
+                return ((int)(this["CZ75Auto_SkinID"]));
             }
             set {
-                this["ChamFriendlyGreen"] = value;
+                this["CZ75Auto_SkinID"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ChamFriendlyBlue {
+        [global::System.Configuration.DefaultSettingValueAttribute("334")]
+        public int R8REVOLVER_SkinID {
             get {
-                return ((int)(this["ChamFriendlyBlue"]));
+                return ((int)(this["R8REVOLVER_SkinID"]));
             }
             set {
-                this["ChamFriendlyBlue"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ChamBrightness {
-            get {
-                return ((int)(this["ChamBrightness"]));
-            }
-            set {
-                this["ChamBrightness"] = value;
+                this["R8REVOLVER_SkinID"] = value;
             }
         }
     }
