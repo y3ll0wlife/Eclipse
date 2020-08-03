@@ -1,1 +1,1 @@
-test
+ContentFile(path="Eclipse/Offsets.cs")
