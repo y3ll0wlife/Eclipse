@@ -10,7 +10,6 @@ namespace Eclipse
     internal class Offsets
     {
         // Thanks https://github.com/Akandesh/blazedumper/blob/master/csgo.cs for the offsets
-
          public const Int32 cs_gamerules_data = 0x0;
          public const Int32 m_ArmorValue = 0xB378;
          public const Int32 m_Collision = 0x320;
